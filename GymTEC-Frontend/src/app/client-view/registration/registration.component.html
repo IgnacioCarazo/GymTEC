@@ -1,0 +1,179 @@
+<h2>Register</h2>
+<div class="row">
+    <div class="col-xs-12">
+      <form [formGroup]="clientForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="form-group">
+              <label for="name">Nombre</label>
+              <input
+                type="text"
+                id="name"
+                formControlName="name"
+                class="form-control"
+                style="width: 200px;"
+                placeholder="Inserte su nombre"
+                required
+                >
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="form-group">
+              <label for="primaryLastName">Primer Apellido</label>
+              <input
+                type="text"
+                id="primaryLastName"
+                formControlName="primaryLastName"
+                class="form-control"
+                style="width: 200px;"
+                placeholder="Inserte su primer apellido"
+                required
+
+                >
+            </div>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+              <div class="form-group">
+                <label for="secondaryLastName">Segundo Apellido</label>
+                <input
+                  type="text"
+                  id="secondaryLastName"
+                  formControlName="secondaryLastName"
+                  class="form-control"
+                  style="width: 200px;"
+                  placeholder="Inserte su segundo apellido"
+                  required
+                  >
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="form-group">
+                <label for="address">Dirección</label>
+                <input
+                  type="text"
+                  id="address"
+                  formControlName="address"
+                  class="form-control"
+                  style="width: 400px;"
+                  placeholder="Inserte su direccion"
+                  required
+                  >
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <label for="dni" style="margin-top: 10px; margin-bottom: 10px">Cédula</label>
+                <input
+                  type="string"
+                  id="dni"
+                  class="form-control"
+                  formControlName="dni"
+                  style="width: auto;"
+                  placeholder="Inserte su cedula"
+                  required
+                  >
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <label for="age" style="margin-top: 10px; margin-bottom: 10px">Edad</label>
+                <input
+                  type="number"
+                  id="age"
+                  class="form-control"
+                  formControlName="age"
+                  style="width: 100px;"
+                  placeholder="Inserte su edad"
+                  required
+                  >
+            </div>
+          </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <label for="birthDate" style="margin-top: 10px; margin-bottom: 10px">Fecha de Nacimiento</label>
+            <input 
+              type="date" 
+              id="date-string" 
+              class="form-control"
+              formControlName="birthDate"
+              style="width: 160px;"
+              required
+              />
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+              <label for="weight" style="margin-top: 10px; margin-bottom: 10px">Peso (en kilogramos)</label>
+                <input
+                  type="number"
+                  id="weight"
+                  class="form-control"
+                  formControlName="weight"
+                  style="width: 100px;"
+                  placeholder="Inserte su peso en kilogramos"
+                required
+                >
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <label for="imc" style="margin-top: 10px; margin-bottom: 10px">Indice de Masa Corporal</label>
+                <input
+                  type="number"
+                  id="imc"
+                  class="form-control"
+                  formControlName="imc"
+                  style="width: 100px;"
+                  placeholder="Inserte su indice de masa corporal"
+                required
+                >
+            </div>
+          </div>
+        <div class="row">
+          <div class="col-xs-3">
+            <div class="form-group">
+              <label for="email" style="margin-top: 10px; margin-bottom: 10px">E-mail</label>
+              <input
+                type="string"
+                id="email"
+                class="form-control"
+                formControlName="email"
+                placeholder="example@mail.com"
+                required
+                email
+                >
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-3">
+            <div class="form-group">
+              <label for="password" style="margin-top: 10px; margin-bottom: 10px">Password</label>
+              <input
+                type="password"
+                id="password"
+                class="form-control"
+                formControlName="password"
+                required
+                appPassword
+                >
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="form-group">
+            <button class="btn btn-primary" [disabled]="!clientForm.valid">
+                Register
+            </button>
+            <a routerLink="/client/login" class="btn btn-link">Cancel</a>
+        </div>
+      </form>
+    </div>
+  </div>
