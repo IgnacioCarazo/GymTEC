@@ -1,0 +1,15 @@
+<div class="row">
+    <div class="col-xs-12">
+      <button class="btn btn-success" (click)="onNewJob()">Agregar Puesto de Trabajo</button>
+    </div>
+  </div>
+  <hr>
+  <h1>Puestos de Trabajo</h1>
+  <div class="row">
+      <div class="col-xs-12">
+        <app-job-item
+          *ngFor="let jobEl of jobs; let i = index"
+          [job]="jobEl"
+          [index]="i"></app-job-item>
+      </div>
+    </div>

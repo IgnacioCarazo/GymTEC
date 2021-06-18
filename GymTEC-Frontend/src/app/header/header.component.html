@@ -2,11 +2,23 @@
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a href="admin/login" class="navbar-brand">Smart Home TEC</a>
+                <a href="admin/login" class="navbar-brand">GymTEC</a>
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li *ngIf="this.clientService.login" routerLinkActive="active"><a routerLink="/admin/gestion-sucursales">Gestion de Sucursales</a></li>
+                    <li *ngIf="this.adminService.login" routerLinkActive="active" ><a routerLink="/admin/gestion-sucursales">Sucursales</a></li>
+                    <li *ngIf="this.adminService.login" routerLinkActive="active"><a routerLink="/admin/gestion-tratamientos-spa">Tratamientos de Spa</a></li>
+                    <li *ngIf="this.adminService.login" routerLinkActive="active"><a routerLink="/admin/gestion-puestos">Puestos</a></li>
+                    <li *ngIf="this.adminService.login" routerLinkActive="active"><a routerLink="/admin/gestion-tipo-planilla">Tipo de Planillas</a></li>
+                    <li *ngIf="this.adminService.login" routerLinkActive="active"><a routerLink="/admin/gestion-empleados">Empleados</a></li>
+                    <li *ngIf="this.adminService.login" routerLinkActive="active"><a routerLink="/admin/gestion-servicios">Servicios</a></li>
+                    <li *ngIf="this.adminService.login" routerLinkActive="active"><a routerLink="/admin/gestion-tipo-maquinas">Tipo de Maquinas</a></li>
+                    <li *ngIf="this.adminService.login" routerLinkActive="active"><a routerLink="/admin/gestion-maquinas">Maquinas</a></li>
+                    <li *ngIf="this.adminService.login" routerLinkActive="active"><a routerLink="/admin/gestion-productos">Productos</a></li>
+
+
+
+
                     
 
 
@@ -15,8 +27,8 @@
                     <li class="dropdown" appDropdown>
                         <a class="dropdown-toggle" role="button">Manage <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a style="cursor: pointer;" (click)="changeView()" >Cambiar a Cliente</a></li>
-                            <li><a *ngIf="this.clientService.login" style="cursor: pointer;" (click)="logout()">Logout</a></li>
+                            <li><a *ngIf="!this.adminService.login" style="cursor: pointer;" (click)="changeView()" >Cambiar a Cliente</a></li>
+                            <li><a *ngIf="this.adminService.login" style="cursor: pointer;" (click)="logout()">Logout</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -29,7 +41,7 @@
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a href="client/login" class="navbar-brand">Gym TEC</a>
+                <a href="client/login" class="navbar-brand">GymTEC</a>
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
@@ -39,7 +51,7 @@
                     <li class="dropdown" appDropdown>
                         <a class="dropdown-toggle" role="button">Manage <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a style="cursor: pointer;" (click)="changeView()" >Cambiar a Admin</a></li>
+                            <li><a *ngIf="!this.clientService.login" style="cursor: pointer;" (click)="changeView()" >Cambiar a Admin</a></li>
                             <li><a *ngIf="this.clientService.login" style="cursor: pointer;" (click)="logout()">Logout</a></li>
                         </ul>
                     </li>

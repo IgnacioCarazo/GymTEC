@@ -1,0 +1,15 @@
+<div class="row">
+    <div class="col-xs-12">
+      <button class="btn btn-success" (click)="onNewMachineType()">Agregar Tipo de Maquina</button>
+    </div>
+  </div>
+  <hr>
+  <h1>Tipos de Maquinas</h1>
+  <div class="row">
+      <div class="col-xs-12">
+        <app-machine-type-item
+          *ngFor="let machineTypeEl of machineTypes; let i = index"
+          [machineType]="machineTypeEl"
+          [index]="i"></app-machine-type-item>
+      </div>
+    </div>

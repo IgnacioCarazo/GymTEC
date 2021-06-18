@@ -1,0 +1,17 @@
+<div class="row">
+    <div class="col-xs-12">
+      <button class="btn btn-success" (click)="onNewGym()">Agregar Sucursal</button>
+    </div>
+  </div>
+  <hr>
+  <h1>Sucursales</h1>
+  <div class="row">
+      <div class="col-xs-12">
+        <app-gym-item
+          *ngFor="let gymEl of gyms; let i = index"
+          [gym]="gymEl"
+          [index]="i"></app-gym-item>
+      </div>
+    </div>
+    
+  

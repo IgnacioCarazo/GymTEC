@@ -1,0 +1,109 @@
+<div class="row">
+    <div class="col-xs-12">
+      <form [formGroup]="gymForm" (ngSubmit)="onSubmit()">
+        
+        <hr>
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="form-group">
+              <label for="name">Nombre</label>
+              <input
+                type="text"
+                id="name"
+                formControlName="name"
+                class="form-control">
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div *ngIf="!this.spa" class="row">
+          <div class="col-xs-1">
+            <div class="form-group">
+              <label for="spaActive">Spa</label>
+              <input
+                type="checkbox"
+                id="spaActive"
+                formControlName="spaActive"
+                class="form-control">
+            </div>
+          </div>
+        </div>
+        
+        <div *ngIf="!this.store" class="row">
+          <div class="col-xs-1">
+            <div class="form-group">
+              <label for="storeActive">Tienda</label>
+              <input
+                type="checkbox"
+                id="storeActive"
+                formControlName="storeActive"
+                class="form-control">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <label for="openingDate">Fecha de Apertura</label>
+              <input
+                type="text"
+                id="openingDate"
+                class="form-control"
+                formControlName="openingDate"
+                >
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-xs-4">
+            <div class="form-group">
+              <label for="businessHours">Horas de Trabajo</label>
+              <input
+                type="text"
+                id="businessHours"
+                class="form-control"
+                formControlName="businessHours"
+                >
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-xs-4">
+            <div class="form-group">
+              <label for="maxCapacity">Capacidad Maxima (Personas)</label>
+              <input
+                type="number"
+                id="maxCapacity"
+                class="form-control"
+                formControlName="maxCapacity"
+                >
+            </div>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-5">
+              <div class="form-group">
+                <label for="phoneNumbers">Números Telefónicos</label>
+                <input
+                  type="phoneNumbers"
+                  id="spaActive"
+                  formControlName="phoneNumbers"
+                  class="form-control">
+              </div>
+            </div>
+          
+        
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <button
+              type="submit"
+              class="btn btn-success"
+              [disabled]="!gymForm.valid">Guardar</button>
+            <button type="button" class="btn btn-danger" (click)="onCancel()">Cancelar</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  

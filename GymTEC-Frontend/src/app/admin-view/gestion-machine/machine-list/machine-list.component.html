@@ -1,0 +1,15 @@
+<div class="row">
+    <div class="col-xs-12">
+      <button class="btn btn-success" (click)="onNewMachine()">Agregar Maquina</button>
+    </div>
+  </div>
+  <hr>
+  <h1>Inventario</h1>
+  <div class="row">
+      <div class="col-xs-12">
+        <app-machine-item
+          *ngFor="let machineEl of machines; let i = index"
+          [machine]="machineEl"
+          [index]="i"></app-machine-item>
+      </div>
+    </div>

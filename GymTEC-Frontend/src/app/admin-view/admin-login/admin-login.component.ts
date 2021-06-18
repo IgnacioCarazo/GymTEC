@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AdminService } from 'src/app/services/admin.service';
 
 @Component({
   selector: 'app-admin-login',
@@ -15,7 +17,7 @@ export class AdminLoginComponent implements OnInit {
     email!: string;
     password!: string;
 
-  constructor() { }
+  constructor(private adminService : AdminService, private router : Router) { }
   
 
   ngOnInit(): void {
@@ -23,6 +25,9 @@ export class AdminLoginComponent implements OnInit {
 
 
   onSubmit(loginForm: NgForm) {  
+    this.router.navigate(['/admin/gestion-sucursales']);
+
+    this.adminService.login = true;
     console.log(loginForm.value);
     loginForm.reset();
   }
