@@ -1,0 +1,15 @@
+<div class="row">
+    <div class="col-xs-12">
+      <button class="btn btn-success" (click)="onNewTreatment()">Agregar Tratamiento</button>
+    </div>
+  </div>
+  <hr>
+  <h1>Tratamientos de Spa</h1>
+  <div class="row">
+      <div class="col-xs-12">
+        <app-tratamientos-item
+          *ngFor="let treatmentEl of treatments; let i = index"
+          [treatment]="treatmentEl"
+          [index]="i"></app-tratamientos-item>
+      </div>
+    </div>

@@ -17,7 +17,7 @@ export class HeaderComponent implements OnInit {
 
   constructor(private router: Router,
               public clientService: ClientService,
-              private adminService: AdminService) { }
+              public adminService: AdminService) { }
 
   ngOnInit(): void {
   }
@@ -48,6 +48,8 @@ export class HeaderComponent implements OnInit {
   } else {
       this.router.navigate(['/client/login']);
   }
+  this.adminService.login = false;
+  this.clientService.login = false;
 }
 
  /**
@@ -57,6 +59,8 @@ export class HeaderComponent implements OnInit {
     * is returned by the backend. 
     */
   onSubmit(form: NgForm) {
+    this.adminService.login = true;
+
     this.email = form.value.email;
     this.password = form.value.password;        
     

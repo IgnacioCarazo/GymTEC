@@ -1,0 +1,184 @@
+<div class="row">
+    <div class="col-xs-12">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        
+        <hr>
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="form-group">
+              <label for="name">Nombre</label>
+              <input
+                type="text"
+                id="name"
+                formControlName="name"
+                class="form-control">
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div *ngIf="!this.editMode" class="row">
+          <div class="col-xs-6">
+            <div class="form-group">
+              <label for="id">ID</label>
+              <input
+                type="number"
+                id="id"
+                formControlName="id"
+                class="form-control">
+            </div>
+          </div>
+        </div>
+        <div *ngIf="this.editMode" class="row">
+            <div class="col-xs-6">
+              <div class="form-group">
+                <label for="id">ID</label>
+                {{this.employeeID}}
+              </div>
+            </div>
+          </div>
+        <div class="row">
+            <div class="col-xs-12">
+              <div class="form-group">
+                <label for="primaryLastName">Primer Apellido</label>
+                <input
+                  type="text"
+                  id="primaryLastName"
+                  formControlName="primaryLastName"
+                  class="form-control">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="form-group">
+                <label for="secondaryLastName">Segundo Apellido</label>
+                <input
+                  type="text"
+                  id="secondaryLastName"
+                  formControlName="secondaryLastName"
+                  class="form-control">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="form-group">
+                <label for="province">Provincia</label>
+                <input
+                  type="text"
+                  id="province"
+                  formControlName="province"
+                  class="form-control">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="form-group">
+                <label for="canton">Canton</label>
+                <input
+                  type="text"
+                  id="canton"
+                  formControlName="canton"
+                  class="form-control">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="form-group">
+                <label for="district">Distrito</label>
+                <input
+                  type="text"
+                  id="district"
+                  formControlName="district"
+                  class="form-control">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="form-group">
+                <label for="email">E-mail</label>
+                <input
+                  type="email"
+                  id="email"
+                  formControlName="email"
+                  class="form-control">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="form-group">
+                <label for="password">Contraseña</label>
+                <input
+                  type="text"
+                  id="password"
+                  formControlName="password"
+                  class="form-control">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-5">
+              <div class="form-group">
+                <label for="numberOfClasses">Cantidad de Clases</label>
+                <input
+                  type="number"
+                  id="numberOfClasses"
+                  formControlName="numberOfClasses"
+                  class="form-control">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-5">
+              <div class="form-group">
+                <label for="laboredHours">Horas Laboradas</label>
+                <input
+                  type="number"
+                  id="laboredHours"
+                  formControlName="laboredHours"
+                  class="form-control">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-5">
+              <div class="form-group">
+                <label for="salary">Salario</label>
+                <input
+                  type="number"
+                  id="salary"
+                  formControlName="salary"
+                  class="form-control">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="form-group">
+                <label for="role">Rol</label>
+                <input
+                  type="text"
+                  id="role"
+                  formControlName="role"
+                  class="form-control">
+              </div>
+            </div>
+          </div>
+        
+        <div class="row">
+          <div class="col-xs-12">
+            <button
+              type="submit"
+              class="btn btn-success"
+              [disabled]="!form.valid">Guardar</button>
+            <button type="button" class="btn btn-danger" (click)="onCancel()">Cancelar</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  

@@ -36,6 +36,7 @@ export class ClientLoginComponent implements OnInit {
     
 
     onSubmit(loginForm: NgForm) {  
+      this.clientService.login = true;
       console.log(loginForm.value);
       loginForm.reset();
     }

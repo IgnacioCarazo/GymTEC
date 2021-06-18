@@ -1,0 +1,26 @@
+<div class="row">  
+    <div class="row" style="margin-top: 10px;">
+      <div class="col-xs-12">
+          <h1> {{ employee.name }} {{employee.primaryLastName}} {{employee.secondaryLastName}}</h1>
+          <h4> {{ employee.role }}</h4>
+          
+      </div>
+    </div>  
+  <hr>
+  <div class="row" style="margin-top: 5px; margin-bottom: 5px;">
+    <div class="col-xs-12">
+      <div
+        class="btn-group"
+        appDropdown>
+        <button
+          type="button"
+          class="btn btn-primary dropdown-toggle">
+          Manejar Empleado <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a style="cursor: pointer;" (click)="onEditEmployee()">Editar Empleado</a></li>
+          <li><a style="cursor: pointer;" (click)="onDeleteEmployee()">Eliminar Empleado</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
