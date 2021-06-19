@@ -13,6 +13,16 @@ export class GymClassService {
     this.classes = []
   }
 
+   /**
+  * @name setClasses()
+  * @argument {Class[]} classes
+  * @description  It set this service classes with the value of the classes argument.
+  */
+    setClasess(classes: GymClass[]) {
+        this.classes = classes;
+        this.classesChanged.next(this.classes.slice());
+      }
+
   /**
   * @name getClasses()
   * @returns The array of classes of this service.  

@@ -13,6 +13,16 @@ export class SpreadsheetService {
   
       this.spreadsheetTypes = [new SpreadsheetType("Pago mensual"), new SpreadsheetType("Pago por clase"), new SpreadsheetType("Pago por hora")];
     }
+
+   /**
+  * @name setSpreadsheets()
+  * @argument {SpreadsheetType[]} spreadsheetTypes
+  * @description  It set this service gyms with the value of the gyms argument.
+  */
+    setSpreadsheets(spreadsheetTypes: SpreadsheetType[]) {
+      this.spreadsheetTypes = spreadsheetTypes;
+      this.spreadsheetTypesChanged.next(this.spreadsheetTypes.slice());
+    }
   
     /**
     * @name getspreadsheetTypes()

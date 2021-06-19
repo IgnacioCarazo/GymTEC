@@ -2,7 +2,8 @@ import { Component, NgModule, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Client } from 'src/app/models/client.model';
-
+import { DataStorageService } from 'src/app/services/data-storage.service';
+import { Md5 } from 'ts-md5';
 
 @Component({
   selector: 'app-registration',
@@ -16,7 +17,8 @@ export class RegistrationComponent implements OnInit {
   clientForm!: FormGroup;
   client!: Client;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+    private dataStorageService: DataStorageService) { }
 
   ngOnInit(): void {
     this.initForm();
@@ -25,10 +27,12 @@ export class RegistrationComponent implements OnInit {
    
 
   onSubmit() {      
+    this.clientForm.value.password = Md5.hashStr(this.clientForm.value.password);
     console.log(this.clientForm.value);
-    
-    this.router.navigate(['/client/login']);
 
+    this.client = this.clientForm.value;
+    this.dataStorageService.sendRegisterInfo(this.client);
+    this.router.navigate(['/client/login']);
     this.clientForm.reset();
   }
 

@@ -13,6 +13,15 @@ export class ProductService {
   
       this.products = [new Product("Producto 1"), new Product("Producto 2"), new Product("Producto 3")];
     }
+   /**
+  * @name setProducts()
+  * @argument {Product[]} products
+  * @description  It set this service jobs with the value of the jobs argument.
+  */
+    setProducts(products: Product[]) {
+      this.products = products;
+      this.productsChanged.next(this.products.slice());
+    }     
   
     /**
     * @name getProducts()

@@ -76,6 +76,8 @@ import { CClaseListComponent } from './admin-view/crear-clase/c-clase-list/c-cla
 import { CClaseItemComponent } from './admin-view/crear-clase/cClase-list/c-clase-item/c-clase-item.component';
 import { GymClassService } from './services/gymclass.service';
 import { RegistroClasesComponent } from './client-view/registro-clases/registro-clases.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -148,6 +150,7 @@ import { RegistroClasesComponent } from './client-view/registro-clases/registro-
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule
  
     
     
