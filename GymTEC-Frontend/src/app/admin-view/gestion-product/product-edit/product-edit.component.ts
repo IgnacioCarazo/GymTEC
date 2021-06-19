@@ -76,9 +76,11 @@ export class ProductEditComponent implements OnInit {
   
       this.form = new FormGroup({
         name: new FormControl(name, Validators.required),
-        cost: new FormControl(cost, Validators.required),
+        cost: new FormControl(cost),
         description: new FormControl(description, Validators.required),
         barCode: new FormControl(barCode, Validators.required),
+        gymName: new FormControl(""),
+
 
       });
     }

@@ -61,5 +61,58 @@ export class TreatmentService {
       this.treatmentsChanged.next(this.treatments.slice());
     }
 
-    
+
+   /**
+    * @name getGymTreatments()
+    * @returns The array of treatments registered to the gym. 
+    * @description If switch = 0 returns treatments_aux (machines belongin to the gym), if switch = 1
+    * returns machines without a gym 
+    */
+    getGymTreatments(gymName: string, switchX: number) {
+      let treatments_aux: Treatment[] = [];
+      let treatments_aux_2: Treatment[] = [];
+      for (let treatment of this.treatments) {
+        if (treatment.gymName === gymName) {
+          treatments_aux.push(treatment)
+        } if (treatment.gymName === "") {
+          treatments_aux_2.push(treatment)
+        }
+      }
+      if (switchX === 1) {
+          return treatments_aux_2
+      } else {
+          return treatments_aux
+      }
+    }
+
+
+
+      /**
+    * @name getTreatmentByID()
+    * @description It searches a treatment by its id
+    * @returns {Treatment} A treatment 
+    */
+       getTreatmentByID(id: number): any {
+        for (let treatment of this.treatments) {
+            if (treatment.id === id) {
+              return treatment;
+            } 
+          }
+      }
+
+  /**
+* @name getTreatmentIndexByID()
+* @description It searches a machine by its index
+* @returns {Product} A product 
+*/
+getTreatmentIndexByID(id: number): any {
+    let cont = 0;
+    for (let treatment of this.treatments) {
+        if (treatment.id === id) {
+          return cont;
+         } else {
+          cont += 1;
+      }
+    }
+   }
   }

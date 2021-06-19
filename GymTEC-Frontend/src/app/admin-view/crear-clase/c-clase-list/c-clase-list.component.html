@@ -1,0 +1,15 @@
+<div class="row">
+    <div class="col-xs-12">
+      <button class="btn btn-success" (click)="onNewGymClass()">Agregar Clase</button>
+    </div>
+  </div>
+  <hr>
+  <h1>Clases</h1>
+  <div class="row">
+      <div class="col-xs-12">
+        <app-c-clase-item
+          *ngFor="let classEl of classes; let i = index"
+          [class]="classEl"
+          [index]="i"></app-c-clase-item>
+      </div>
+    </div>

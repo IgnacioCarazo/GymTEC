@@ -7,5 +7,8 @@ export class GymClass {
     public isGrupal!: boolean;
     // foreign attributes
     public instructorID!: number;
+    public classType!: string;
+    public classTypeID!: string;
+
 
 }

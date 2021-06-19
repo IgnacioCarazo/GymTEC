@@ -1,0 +1,118 @@
+<div class="row">
+    <div class="col-xs-12">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        
+        <hr>
+        <div class="row">
+            <div class="col-xs-12">
+              <label for="date" style="margin-top: 10px; margin-bottom: 10px">Fecha</label>
+              <input 
+                type="date" 
+                id="date" 
+                class="form-control"
+                formControlName="date"
+                style="width: 160px;"
+                required
+                />
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-xs-6">
+            <div class="form-group">
+              <label for="startTime">Tiempo de inicio</label>
+              <input
+                type="text"
+                id="startTime"
+                formControlName="startTime"
+                class="form-control">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6">
+              <div class="form-group">
+                <label for="finnishTime">Tiempo de finalización</label>
+                <input
+                  type="text"
+                  id="finnishTime"
+                  formControlName="finnishTime"
+                  class="form-control">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-6">
+              <div class="form-group">
+                <label for="capacity">Capacidad</label>
+                <input
+                  type="number"
+                  id="capacity"
+                  formControlName="capacity"
+                  class="form-control">
+              </div>
+            </div>
+          </div>
+          
+          <div class="row">
+            <div class="col-xs-1">
+              <div class="form-group">
+                <label for="isGrupal">Grupal</label>
+                <input
+                  type="checkbox"
+                  id="isGrupal"
+                  formControlName="isGrupal"
+                  class="form-control">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-6">
+              <div class="form-group">
+                <label for="instructorID">ID Instructor</label>
+                <input
+                  type="number"
+                  id="instructorID"
+                  formControlName="instructorID"
+                  class="form-control">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-6">
+              <div class="form-group">
+                <label for="classType">Nombre del tipo de clase</label>
+                <input
+                  type="text"
+                  id="classType"
+                  formControlName="classType"
+                  class="form-control">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-6">
+              <div class="form-group">
+                <label for="classTypeID">ID del tipo de clase</label>
+                <input
+                  type="text"
+                  id="classTypeID"
+                  formControlName="classTypeID"
+                  class="form-control">
+              </div>
+            </div>
+          </div>
+        
+        <div class="row">
+          <div class="col-xs-12">
+            <button
+              type="submit"
+              class="btn btn-success"
+              [disabled]="!form.valid">Guardar</button>
+            <button type="button" class="btn btn-danger" (click)="onCancel()">Cancelar</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  

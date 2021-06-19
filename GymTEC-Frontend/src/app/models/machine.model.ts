@@ -9,6 +9,8 @@ export class Machine {
 
 
     constructor (brand : string) {
+        this.serialNumber = 100;
         this.brand = brand;
+        this.gymName = "";
     }
 }

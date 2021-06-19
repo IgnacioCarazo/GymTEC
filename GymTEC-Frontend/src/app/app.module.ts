@@ -65,6 +65,16 @@ import { ProductDetailComponent } from './admin-view/gestion-product/product-det
 import { ProductListComponent } from './admin-view/gestion-product/product-list/product-list.component';
 import { ProductItemComponent } from './admin-view/gestion-product/product-list/product-item/product-item.component';
 import { ProductService } from './services/product.service';
+import { AsociacionTratamientosComponent } from './admin-view/asociacion-tratamientos/asociacion-tratamientos.component';
+import { AsociacionProductsComponent } from './admin-view/asociacion-products/asociacion-products.component';
+import { AsociacionInventarioComponent } from './admin-view/asociacion-inventario/asociacion-inventario.component';
+import { CrearClaseComponent } from './admin-view/crear-clase/crear-clase.component';
+import { GeneracionSpreadsheetComponent } from './admin-view/generacion-spreadsheet/generacion-spreadsheet.component';
+import { CClaseEditComponent } from './admin-view/crear-clase/c-clase-edit/c-clase-edit.component';
+import { CClaseDetailComponent } from './admin-view/crear-clase/c-clase-detail/c-clase-detail.component';
+import { CClaseListComponent } from './admin-view/crear-clase/c-clase-list/c-clase-list.component';
+import { CClaseItemComponent } from './admin-view/crear-clase/cClase-list/c-clase-item/c-clase-item.component';
+import { GymClassService } from './services/gymclass.service';
 
 @NgModule({
   declarations: [
@@ -119,7 +129,16 @@ import { ProductService } from './services/product.service';
     ProductEditComponent,
     ProductDetailComponent,
     ProductListComponent,
-    ProductItemComponent
+    ProductItemComponent,
+    AsociacionTratamientosComponent,
+    AsociacionProductsComponent,
+    AsociacionInventarioComponent,
+    CrearClaseComponent,
+    GeneracionSpreadsheetComponent,
+    CClaseEditComponent,
+    CClaseDetailComponent,
+    CClaseListComponent,
+    CClaseItemComponent,
     
   ],
   imports: [
@@ -135,7 +154,7 @@ import { ProductService } from './services/product.service';
     FormsModule,
     ReactiveFormsModule],
   providers: [ClientService,AdminService,GymService,TreatmentService, JobService, SpreadsheetService, EmployeeService,
-              ServiceService, MachineTypeService, MachineService, ProductService],
+              ServiceService, MachineTypeService, MachineService, ProductService, GymClassService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

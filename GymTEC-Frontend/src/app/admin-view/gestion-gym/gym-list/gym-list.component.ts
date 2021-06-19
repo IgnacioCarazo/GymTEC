@@ -14,7 +14,7 @@ export class GymListComponent implements OnInit {
   gyms!: Gym[];
   subscription!: Subscription;
 
-  constructor(private gymService : GymService,
+  constructor(public gymService : GymService,
     private router: Router,
     private route: ActivatedRoute) { }
 

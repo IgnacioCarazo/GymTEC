@@ -62,5 +62,58 @@ export class ProductService {
       this.productsChanged.next(this.products.slice());
     }
 
+        /**
+    * @name getGymProducts()
+    * @returns The array of machines registered to the gym. 
+    * @description If switch = 0 returns products_aux (machines belongin to the gym), if switch = 1
+    * returns machines without a gym 
+    */
+    getGymProducts(gymName: string, switchX: number) {
+      let products_aux: Product[] = [];
+      let products_aux_2: Product[] = [];
+      for (let product of this.products) {
+        if (product.gymName === gymName) {
+            products_aux.push(product)
+        } if (product.gymName === "") {
+            products_aux_2.push(product)
+        }
+      }
+      if (switchX === 1) {
+          return products_aux_2
+      } else {
+          return products_aux
+      }
+    }
+
+
+
+      /**
+    * @name getProductBySN()
+    * @description It searches a product by its barCode
+    * @returns {Product} A product 
+    */
+       getProductBySN(barCode: string): any {
+        for (let product of this.products) {
+            if (product.barCode === barCode) {
+              return product;
+            } 
+          }
+      }
+
+  /**
+* @name getProductBySN()
+* @description It searches a machine by its index
+* @returns {Product} A product 
+*/
+  getProductIndexBySN(barCode: string): any {
+    let cont = 0;
+    for (let product of this.products) {
+        if (product.barCode === barCode) {
+          return cont;
+         } else {
+          cont += 1;
+      }
+    }
+   }
     
   }
