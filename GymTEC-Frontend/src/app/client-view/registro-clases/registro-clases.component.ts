@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'app-clases',
-  templateUrl: './clases.component.html',
-  styleUrls: ['./clases.component.css']
+  selector: 'app-registro-clases',
+  templateUrl: './registro-clases.component.html',
+  styleUrls: ['./registro-clases.component.css']
 })
-export class ClasesComponent implements OnInit {
+export class RegistroClasesComponent implements OnInit {
+
   form!: FormGroup;
   
 
 
-  constructor(private router : Router) { }
+  constructor() { }
 
   ngOnInit(): void {
     this.initForm();
@@ -21,8 +21,6 @@ export class ClasesComponent implements OnInit {
 
 
   onSubmit() {      
-    this.router.navigate(['/client/registro-clases']);
-
     console.log(this.form.value);
     this.form.reset();
   }
@@ -36,11 +34,9 @@ export class ClasesComponent implements OnInit {
   */
    private initForm() {
     let gymClass = '';
-    let gym = '';
 
     this.form = new FormGroup({
       gymClass: new FormControl(gymClass),
-      gym: new FormControl(gym),
     });
   }
 

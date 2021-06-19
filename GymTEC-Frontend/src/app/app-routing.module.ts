@@ -39,6 +39,7 @@ import { TratamientosEditComponent } from './admin-view/gestion-tratamientos/tra
 import { ClasesComponent } from './client-view/clases/clases.component';
 import { ClientLoginComponent } from './client-view/client-login/client-login.component';
 import { RegistrationComponent } from './client-view/registration/registration.component';
+import { RegistroClasesComponent } from './client-view/registro-clases/registro-clases.component';
 
 const routes: Routes = [ 
   { path: '', redirectTo: '/client/login', pathMatch: 'full' },
@@ -48,6 +49,8 @@ const routes: Routes = [
 { path: 'client/login', component: ClientLoginComponent },
 { path: 'client/register', component: RegistrationComponent },
 { path: 'client/clases', component: ClasesComponent },
+{ path: 'client/registro-clases', component: RegistroClasesComponent },
+
 
 
 

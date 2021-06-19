@@ -75,6 +75,7 @@ import { CClaseDetailComponent } from './admin-view/crear-clase/c-clase-detail/c
 import { CClaseListComponent } from './admin-view/crear-clase/c-clase-list/c-clase-list.component';
 import { CClaseItemComponent } from './admin-view/crear-clase/cClase-list/c-clase-item/c-clase-item.component';
 import { GymClassService } from './services/gymclass.service';
+import { RegistroClasesComponent } from './client-view/registro-clases/registro-clases.component';
 
 @NgModule({
   declarations: [
@@ -139,6 +140,7 @@ import { GymClassService } from './services/gymclass.service';
     CClaseDetailComponent,
     CClaseListComponent,
     CClaseItemComponent,
+    RegistroClasesComponent,
     
   ],
   imports: [
