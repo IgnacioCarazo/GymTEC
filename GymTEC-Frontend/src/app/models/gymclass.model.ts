@@ -1,5 +1,6 @@
 export class GymClass {
     // gym class attributes
+    public gymClassID!: number;
     public date!: string;
     public startTime!: string;
     public finnishTime!: string;
