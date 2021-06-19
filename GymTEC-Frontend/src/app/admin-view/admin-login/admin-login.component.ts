@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Employee } from 'src/app/models/employee.model';
 import { AdminService } from 'src/app/services/admin.service';
+import { DataStorageService } from 'src/app/services/data-storage.service';
+import { Md5 } from 'ts-md5';
 
 @Component({
   selector: 'app-admin-login',
@@ -16,8 +19,10 @@ export class AdminLoginComponent implements OnInit {
     returnUrl!: string;
     email!: string;
     password!: string;
+    employee!: Employee
 
-  constructor(private adminService : AdminService, private router : Router) { }
+  constructor(private adminService : AdminService, private router : Router,
+    private dataStorageService : DataStorageService) { }
   
 
   ngOnInit(): void {
@@ -25,9 +30,15 @@ export class AdminLoginComponent implements OnInit {
 
 
   onSubmit(loginForm: NgForm) {  
-    this.router.navigate(['/admin/gestion-sucursales']);
-
-    this.adminService.login = true;
+    loginForm.value.password = Md5.hashStr(loginForm.value.password);
+    this.dataStorageService.sendLoginInfoEmployee(loginForm.value.email,loginForm.value.passwordd).
+            subscribe( employee => {
+                this.employee = employee;
+                if (this.employee.id !== 0) {
+                  this.adminService.login = true; 
+                  this.router.navigate(['/admin/gestion-sucursales']);
+                }     
+            });
     console.log(loginForm.value);
     loginForm.reset();
   }

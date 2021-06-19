@@ -32,13 +32,19 @@ export class CClaseEditComponent implements OnInit {
   * @description Depending if its edit mode or add new recipe mode it will update or add the current recipe.
   */
    onSubmit() {
-     console.log(this.form.value);
+    if (this.form.value.isGrupal) {
+      this.form.value.isGrupal = 1;
+    } else {
+      this.form.value.isGrupal = 0;
+    }
 
     if (this.editMode) {
       this.classService.updateClass(this.id, this.form.value);
     } else {
       this.classService.addClass(this.form.value);
     }
+    console.log(this.form.value);
+
     this.onCancel();
   }
 
@@ -62,10 +68,10 @@ export class CClaseEditComponent implements OnInit {
       let startTime = '';
       let finnishTime = '';
       let capacity = 0;
-      let isGrupal = false;
+      let isGrupal = 0;
       let instructorID = 0;
       let classType = '';
-      let classTypeID = 'string';
+      let classTypeID = '';
       
       if (this.editMode) {
         const gymClass = this.classService.getClass(this.id);

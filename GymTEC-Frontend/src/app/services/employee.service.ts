@@ -7,12 +7,23 @@ import { Employee } from "../models/employee.model";
 export class EmployeeService {
 
     private employees: Employee[] = [];
+    public employee!: Employee;
     employeesChanged = new Subject<Employee[]>();
   
     constructor() {
   
       this.employees = [new Employee("Nacho"),new Employee("Haziel"),new Employee("Joseph")];
     }
+
+  /**
+  * @name setEmployees()
+  * @argument {Employee[]} employees
+  * @description  It set this service devices with the value of the devices argument.
+  */
+   setEmployees(employees: Employee[]) {
+    this.employees = employees;
+    this.employeesChanged.next(this.employees.slice());
+  }
   
     /**
     * @name getEmployees()

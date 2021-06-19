@@ -12,6 +12,16 @@ export class ServiceService {
   
       this.services = [new Service("Yoga"), new Service("Spinning"), new Service("Cardio"), new Service("Zumba")];
     }
+
+     /**
+  * @name setServices()
+  * @argument {Service[]} services
+  * @description  It set this service jobs with the value of the jobs argument.
+  */
+      setServices(services: Service[]) {
+        this.services = services;
+        this.servicesChanged.next(this.services.slice());
+      }  
   
     /**
     * @name getServices()

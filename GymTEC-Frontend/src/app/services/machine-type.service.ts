@@ -13,6 +13,16 @@ export class MachineTypeService {
   
       this.machineTypes = [new MachineType("Cinta de correr"), new MachineType("Bicicleta Estacionaria"), new MachineType("Mancuernas"), new MachineType("Remos")];
     }
+
+   /**
+  * @name setMachineTypes()
+  * @argument {MachineType[]} machineTypes
+  * @description  It set this service jobs with the value of the jobs argument.
+  */
+    setMachineTypes(machineTypes: MachineType[]) {
+      this.machineTypes = machineTypes;
+      this.machineTypesChangerd.next(this.machineTypes.slice());
+    }    
   
     /**
     * @name getMachineTypes()

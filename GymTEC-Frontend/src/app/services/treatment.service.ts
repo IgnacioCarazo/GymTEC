@@ -12,6 +12,16 @@ export class TreatmentService {
   
       this.treatments = [new Treatment("Masaje relajante"), new Treatment("Masaje muscular"), new Treatment("Manicure")];
     }
+
+   /**
+  * @name setTreatments()
+  * @argument {Treatment[]} treatments
+  * @description  It set this service gyms with the value of the gyms argument.
+  */
+    setTreatments(treatments: Treatment[]) {
+      this.treatments = treatments;
+      this.treatmentsChanged.next(this.treatments.slice());
+    }
   
     /**
     * @name getTreatments()

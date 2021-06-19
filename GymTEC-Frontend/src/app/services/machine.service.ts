@@ -12,6 +12,16 @@ export class MachineService {
   
       this.machines = [new Machine("Machine 1"), new Machine("Machine 2"), new Machine("Machine 3"), new Machine("Machine 4")];
     }
+
+ /**
+  * @name setMachines()
+  * @argument {Machine[]} machines
+  * @description  It set this service jobs with the value of the jobs argument.
+  */
+  setMachines(machines: Machine[]) {
+    this.machines = machines;
+    this.machinesChanged.next(this.machines.slice());
+  }        
   
     /**
     * @name getMachines()

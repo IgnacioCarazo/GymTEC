@@ -22,6 +22,16 @@ export class GymService {
     this.gyms = [new Gym("Golds 1"), new Gym("Golds 2"), new Gym("Golds 3"), new Gym("Golds 4")]
   }
 
+   /**
+  * @name setGyms()
+  * @argument {Gym[]} gyms
+  * @description  It set this service gyms with the value of the gyms argument.
+  */
+    setGyms(gyms: Gym[]) {
+      this.gyms = gyms;
+      this.gymsChanged.next(this.gyms.slice());
+    }
+
   /**
   * @name getGyms()
   * @returns The array of gyms of this service.  

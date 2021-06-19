@@ -12,6 +12,16 @@ export class JobService {
   
       this.jobs = [new Job("Administrador"), new Job("Dep. Spa"), new Job("dep. Tienda"), new Job("Instructor")];
     }
+
+   /**
+  * @name setJobs()
+  * @argument {Job[]} jobs
+  * @description  It set this service jobs with the value of the jobs argument.
+  */
+    setJobs(jobs: Job[]) {
+      this.jobs = jobs;
+      this.jobsChanged.next(this.jobs.slice());
+    }    
   
     /**
     * @name getJobs()
