@@ -14,6 +14,8 @@ export class GymEditComponent implements OnInit {
   gymForm!: FormGroup;
   spa!: boolean;
   store!: boolean;
+  spa2!: number;
+  store2!: number;
   constructor(private route: ActivatedRoute,
               private gymService: GymService,
               private router: Router) { }
@@ -34,8 +36,21 @@ export class GymEditComponent implements OnInit {
   * @description Depending if its edit mode or add new recipe mode it will update or add the current recipe.
   */
    onSubmit() {
-     console.log(this.gymForm.value);
-
+     if (this.gymForm.value.spaActive) {
+      this.spa2 = 1;
+      this.gymForm.value.spaActive = this.spa2;
+     } else {
+      this.spa2 = 0;
+      this.gymForm.value.spaActive = this.spa2;
+     }
+     if (this.gymForm.value.storeActive) {
+      this.store2 = 1;
+      this.gymForm.value.storeActive = this.store2;
+    } else {
+      this.store2 = 0;
+      this.gymForm.value.storeActive = this.store2;
+    }
+    
     if (this.editMode) {
       this.gymService.updateGym(this.id, this.gymForm.value)
     } else {
@@ -68,11 +83,31 @@ export class GymEditComponent implements OnInit {
 
       if (this.editMode) {
         const gym = this.gymService.getGym(this.id);
-        this.spa = gym.spaActive;
-        this.store = gym.storeActive;
+        console.log(gym);
         name = gym.name;
-        spaActive = gym.spaActive;
-        storeActive = gym.storeActive;
+
+        if (gym.spaActive === 1) {
+        spaActive = true;
+        this.spa = true;
+        this.spa2 = 1;
+
+        } else {
+        spaActive = false;
+        this.spa = false;
+        this.spa2 = 0;
+        }
+
+        if (gym.storeActive === 1) {
+        storeActive = true;
+        this.store = true;
+        this.store2 = 1;
+
+       } else {
+        storeActive = false;
+        this.store = false;
+        this.store2 = 0;
+
+       }
         openingDate = gym.openingDate;
         businessHours = gym.businessHours;
         maxCapacity = gym.maxCapacity;
@@ -86,8 +121,8 @@ export class GymEditComponent implements OnInit {
   
       this.gymForm = new FormGroup({
         name: new FormControl(name, Validators.required),
-        spaActive: new FormControl(spaActive),
-        storeActive: new FormControl(storeActive),
+        spaActive: new FormControl(this.spa2),
+        storeActive: new FormControl(this.store2),
         openingDate: new FormControl(openingDate, Validators.required),
         businessHours: new FormControl(businessHours),
         maxCapacity: new FormControl(maxCapacity, Validators.required),

@@ -60,7 +60,7 @@ export class MachineEditComponent implements OnInit {
       let serialNumber = 0;
       let cost = 0;
       let typeID = 0;
-      let gymName = ''
+      let gymName = "";
       
       if (this.editMode) {
         const machine = this.machineService.getMachine(this.id);
@@ -79,9 +79,9 @@ export class MachineEditComponent implements OnInit {
       this.form = new FormGroup({
         brand: new FormControl(brand, Validators.required),
         serialNumber: new FormControl(serialNumber, Validators.required),
-        cost: new FormControl(cost, Validators.required),
+        cost: new FormControl(cost),
         typeID: new FormControl(typeID, Validators.required),
-        gymName: new FormControl(gymName, Validators.required),
+        gymName: new FormControl(gymName),
 
       });
     }

@@ -1,0 +1,31 @@
+<div class="row">  
+    <div class="row" style="margin-top: 10px;">
+      <div class="col-xs-12">
+          <h1> {{ gymClass.classType }}</h1>
+          <h4> Fecha: {{ gymClass.date }}</h4>
+          <h4> Grupal: {{ grupal }}</h4>
+
+          <h4> Hora de inicio: {{ gymClass.startTime }}</h4>
+          <h4> Finaliza: {{ gymClass.finnishTime }}</h4>
+
+
+      </div>
+    </div>  
+  <hr>
+  <div class="row" style="margin-top: 5px; margin-bottom: 5px;">
+    <div class="col-xs-12">
+      <div
+        class="btn-group"
+        appDropdown>
+        <button
+          type="button"
+          class="btn btn-primary dropdown-toggle">
+          Manejar Producto <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a style="cursor: pointer;" (click)="onEditClass()">Editar Clase</a></li>
+          <li><a style="cursor: pointer;" (click)="onDeleteClass()">Eliminar Clase</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>

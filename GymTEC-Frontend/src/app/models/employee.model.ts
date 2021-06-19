@@ -15,7 +15,7 @@ export class Employee {
     public role!: string;
 
     // foreign attributes
-    
+    public gymName!: string;
 
     constructor (name: string) {
         this.name = name;

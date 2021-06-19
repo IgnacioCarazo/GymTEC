@@ -6,7 +6,12 @@ import { Gym } from "../models/gym.model";
 @Injectable()
 export class GymService {
   
-
+  aT!: boolean;
+  aI!: boolean;
+  aP!: boolean;
+  cC!: boolean;
+  xX!: boolean; 
+  
   login = false;
   client!: Client;
   private gyms: Gym[] = [];

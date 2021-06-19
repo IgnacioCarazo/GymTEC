@@ -2,6 +2,13 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminLoginComponent } from './admin-view/admin-login/admin-login.component';
+import { AsociacionInventarioComponent } from './admin-view/asociacion-inventario/asociacion-inventario.component';
+import { AsociacionProductsComponent } from './admin-view/asociacion-products/asociacion-products.component';
+import { AsociacionTratamientosComponent } from './admin-view/asociacion-tratamientos/asociacion-tratamientos.component';
+import { CClaseDetailComponent } from './admin-view/crear-clase/c-clase-detail/c-clase-detail.component';
+import { CClaseEditComponent } from './admin-view/crear-clase/c-clase-edit/c-clase-edit.component';
+import { CrearClaseComponent } from './admin-view/crear-clase/crear-clase.component';
+import { GeneracionSpreadsheetComponent } from './admin-view/generacion-spreadsheet/generacion-spreadsheet.component';
 import { EmployeeDetailComponent } from './admin-view/gestion-employee/employee-detail/employee-detail.component';
 import { EmployeeEditComponent } from './admin-view/gestion-employee/employee-edit/employee-edit.component';
 import { GestionEmployeeComponent } from './admin-view/gestion-employee/gestion-employee.component';
@@ -29,7 +36,6 @@ import { SpreadsheetTypeEditComponent } from './admin-view/gestion-spreadsheet-t
 import { GestionTratamientosComponent } from './admin-view/gestion-tratamientos/gestion-tratamientos.component';
 import { TratamientosDetailComponent } from './admin-view/gestion-tratamientos/tratamientos-detail/tratamientos-detail.component';
 import { TratamientosEditComponent } from './admin-view/gestion-tratamientos/tratamientos-edit/tratamientos-edit.component';
-import { TratamientosItemComponent } from './admin-view/gestion-tratamientos/tratamientos-list/tratamientos-item/tratamientos-item.component';
 import { ClasesComponent } from './client-view/clases/clases.component';
 import { ClientLoginComponent } from './client-view/client-login/client-login.component';
 import { RegistrationComponent } from './client-view/registration/registration.component';
@@ -48,6 +54,9 @@ const routes: Routes = [
 
 // admin paths
 { path: 'admin/login', component: AdminLoginComponent },
+// generacion de planilla
+{ path: 'admin/generacion-planilla', component: GeneracionSpreadsheetComponent },
+
 //sucursales
 { path: 'admin/gestion-sucursales', component: GestionGymComponent ,
 children: [
@@ -172,6 +181,62 @@ children: [
 },{
  path: ':id/edit',
  component: ProductEditComponent,
+},
+]},
+// asociacion tratamientos
+{ path: 'admin/asociacion-tratamientos', component: AsociacionTratamientosComponent ,
+children: [
+ {
+   path: 'new',
+   component: GymEditComponent,
+ },{
+ path: ':id',
+ component: GymDetailComponent,
+},{
+ path: ':id/edit',
+ component: GymEditComponent,
+},
+]},
+//asociacion de inventario 
+{ path: 'admin/asociacion-inventario', component: AsociacionInventarioComponent ,
+children: [
+ {
+   path: 'new',
+   component: GymEditComponent,
+ },{
+ path: ':id',
+ component: GymDetailComponent,
+},{
+ path: ':id/edit',
+ component: GymEditComponent,
+},
+]},
+//asociacion de productos 
+{ path: 'admin/asociacion-productos', component: AsociacionProductsComponent ,
+children: [
+ {
+   path: 'new',
+   component: GymEditComponent,
+ },{
+ path: ':id',
+ component: GymDetailComponent,
+},{
+ path: ':id/edit',
+ component: GymEditComponent,
+},
+]},
+//crear clase
+{ path: 'admin/crear-clase', component: CrearClaseComponent ,
+children: [
+ {
+   path: 'new',
+   component: CClaseEditComponent,
+ },{
+ path: ':id',
+ component: CClaseDetailComponent,
+},{
+ path: ':id/edit',
+ component: CClaseEditComponent,
 },
 ]},
 ]

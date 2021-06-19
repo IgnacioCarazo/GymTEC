@@ -12,10 +12,20 @@
                     <li *ngIf="this.adminService.login" routerLinkActive="active"><a routerLink="/admin/gestion-tipo-planilla">Tipo de Planillas</a></li>
                     <li *ngIf="this.adminService.login" routerLinkActive="active"><a routerLink="/admin/gestion-empleados">Empleados</a></li>
                     <li *ngIf="this.adminService.login" routerLinkActive="active"><a routerLink="/admin/gestion-servicios">Servicios</a></li>
-                    <li *ngIf="this.adminService.login" routerLinkActive="active"><a routerLink="/admin/gestion-tipo-maquinas">Tipo de Maquinas</a></li>
+                    <li *ngIf="this.adminService.login" routerLinkActive="active"><a routerLink="/admin/gestion-tipo-maquinas">Tipo de Máquinas</a></li>
                     <li *ngIf="this.adminService.login" routerLinkActive="active"><a routerLink="/admin/gestion-maquinas">Maquinas</a></li>
                     <li *ngIf="this.adminService.login" routerLinkActive="active"><a routerLink="/admin/gestion-productos">Productos</a></li>
+                    <li *ngIf="this.adminService.login" routerLinkActive="active"><a routerLink="/admin/generacion-planilla">Generación de Planilla</a></li>
 
+                    <li *ngIf="this.adminService.login" class="dropdown" appDropdown>
+                        <a class="dropdown-toggle" role="button">Configuración Gimnasio <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li routerLinkActive="active"><a routerLink="/admin/asociacion-inventario">Asociación de Inventario</a></li>
+                            <li routerLinkActive="active"><a routerLink="/admin/asociacion-tratamientos">Asociación de Tratamientos</a></li>
+                            <li routerLinkActive="active"><a routerLink="/admin/asociacion-productos">Asociación de Productos</a></li>
+                            <li routerLinkActive="active"><a routerLink="/admin/crear-clase">Crear Clase</a></li>
+                        </ul>
+                    </li>
 
 
 

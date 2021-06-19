@@ -1,4 +1,64 @@
-<div class="row">  
+
+
+<!--Asociacion de Maquinas-->
+
+
+<div *ngIf="this.gymService.aI" class="row">
+  <div class="col-xs-12">
+    <form [formGroup]="formI" (ngSubmit)="onSubmit()">
+      <label for="machines">Inventario</label>
+      <select style="margin-left: 10px;" formControlName="machines" id="machines">
+        <option style="margin-left: 10px;"  *ngFor="let machine of machines; let i = index" [value]="machines[i].serialNumber">
+          {{machines[i].serialNumber}}
+        </option>
+      </select>
+  <button style="margin-left: 20px;" type="submit" class="btn btn-submit" >Agregar</button>
+
+      <br><br>
+    </form>
+  </div>
+</div>
+
+<div *ngIf="this.gymService.aI" class="row">
+  <div class="col-xs-4">
+    <table class="table table-striped">
+      <thead class="thead-dark">
+          <tr>
+            <th scope="col">Máquinas sin registrar</th>
+          </tr>
+        </thead>
+      <tbody>
+              <tr *ngFor="let cell of machines">
+                  {{ cell.serialNumber }}
+              </tr>
+      </tbody>
+  </table>
+  </div>
+</div>
+<div *ngIf="this.gymService.aI" class="row">
+  <div class="col-xs-4">
+    <table class="table table-striped">
+      <thead class="thead-dark">
+          <tr>
+            <th scope="col">Máquinas registradas</th>
+          </tr>
+        </thead>
+      <tbody>
+              <tr *ngFor="let cell of gymMachines">
+                  {{ cell.serialNumber }}
+              </tr>
+      </tbody>
+  </table>
+  </div>
+</div>
+
+
+
+<!--Gestion de Sucursal-->
+
+
+
+<div *ngIf="this.gymService.xX" class="row">  
     <div class="row" style="margin-top: 10px;">
       <div class="col-xs-12">
           <h1>Sucursal {{ gym.name }}</h1>
@@ -6,8 +66,9 @@
           <h4 *ngIf="gym.spaActive">Tienda</h4>
       </div>
     </div>  
+  </div>
   <hr>
-  <div class="row" style="margin-top: 5px; margin-bottom: 5px;">
+  <div *ngIf="this.gymService.xX" class="row" style="margin-top: 5px; margin-bottom: 5px;">
     <div class="col-xs-12">
       <div
         class="btn-group"
@@ -24,3 +85,110 @@
       </div>
     </div>
   </div>
+  
+
+<!--Asociacion de Productos-->
+
+
+<div *ngIf="this.gymService.aP" class="row">
+  <div class="col-xs-12">
+    <form [formGroup]="formP" (ngSubmit)="onSubmit()">
+      <label for="products">Productos</label>
+      <select style="margin-left: 10px;" formControlName="products" id="products">
+        <option style="margin-left: 10px;"  *ngFor="let product of products; let i = index" [value]="products[i].barCode">
+          {{products[i].name}}
+        </option>
+      </select>
+  <button style="margin-left: 20px;" type="submit" class="btn btn-submit" >Agregar</button>
+
+      <br><br>
+    </form>
+  </div>
+</div>
+
+<div *ngIf="this.gymService.aP" class="row">
+  <div class="col-xs-4">
+    <table class="table table-striped">
+      <thead class="thead-dark">
+          <tr>
+            <th scope="col">Productos sin registrar</th>
+          </tr>
+        </thead>
+      <tbody>
+              <tr *ngFor="let cell of products">
+                  {{ cell.name }}
+              </tr>
+      </tbody>
+  </table>
+  </div>
+</div>
+<div *ngIf="this.gymService.aP" class="row">
+  <div class="col-xs-4">
+    <table class="table table-striped">
+      <thead class="thead-dark">
+          <tr>
+            <th scope="col">Productos registrados</th>
+          </tr>
+        </thead>
+      <tbody>
+              <tr *ngFor="let cell of gymProducts">
+                  {{ cell.name }} 
+              </tr>
+      </tbody>
+  </table>
+  </div>
+</div>
+ 
+
+<!--Asociacion de Tratamientos-->
+
+
+<div *ngIf="this.gymService.aT" class="row">
+  <div class="col-xs-12">
+    <form [formGroup]="formT" (ngSubmit)="onSubmit()">
+      <label for="treatments">Tratamientos</label>
+      <select style="margin-left: 10px;" formControlName="treatments" id="treatments">
+        <option style="margin-left: 10px;"  *ngFor="let treatment of treatments; let i = index" [value]="treatments[i].id">
+          {{treatments[i].name}}
+        </option>
+      </select>
+  <button style="margin-left: 20px;" type="submit" class="btn btn-submit" >Agregar</button>
+
+      <br><br>
+    </form>
+  </div>
+</div>
+
+<div *ngIf="this.gymService.aT" class="row">
+  <div class="col-xs-4">
+    <table class="table table-striped">
+      <thead class="thead-dark">
+          <tr>
+            <th scope="col">Tratamientos disponibles</th>
+          </tr>
+        </thead>
+      <tbody>
+              <tr *ngFor="let cell of treatments">
+                  {{ cell.name }}
+              </tr>
+      </tbody>
+  </table>
+  </div>
+</div>
+<div *ngIf="this.gymService.aT" class="row">
+  <div class="col-xs-4">
+    <table class="table table-striped">
+      <thead class="thead-dark">
+          <tr>
+            <th scope="col">Tratamientos registrados</th>
+          </tr>
+        </thead>
+      <tbody>
+              <tr *ngFor="let cell of gymTreatments">
+                  {{ cell.name }} 
+              </tr>
+      </tbody>
+  </table>
+  </div>
+</div>
+ 

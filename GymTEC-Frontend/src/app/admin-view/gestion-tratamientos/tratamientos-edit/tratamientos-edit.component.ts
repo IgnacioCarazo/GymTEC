@@ -74,6 +74,7 @@ export class TratamientosEditComponent implements OnInit {
       this.treatmentForm = new FormGroup({
         name: new FormControl(name, Validators.required),
         id: new FormControl(id, Validators.required),
+        gymName: new FormControl("")
       });
     }
 }
