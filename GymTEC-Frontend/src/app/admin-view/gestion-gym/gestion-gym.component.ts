@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EmployeeService } from 'src/app/services/employee.service';
 import { GymService } from 'src/app/services/gym.service';
 
 @Component({
@@ -8,7 +9,8 @@ import { GymService } from 'src/app/services/gym.service';
 })
 export class GestionGymComponent implements OnInit {
 
-  constructor(public gymService : GymService) { }
+  constructor(public gymService : GymService,
+    private employeeService: EmployeeService) { }
 
   ngOnInit(): void {
     this.gymService.aI = false;
@@ -16,6 +18,7 @@ export class GestionGymComponent implements OnInit {
     this.gymService.aP = false;
     this.gymService.cC = false;
     this.gymService.xX = true;
+    this.employeeService.list = true;
 
 
   }

@@ -5,6 +5,7 @@ import { Service } from "../models/service.model";
 @Injectable()
 export class ServiceService {
 
+    public list!: boolean;
     private services: Service[] = [];
     servicesChanged = new Subject<Service[]>();
   

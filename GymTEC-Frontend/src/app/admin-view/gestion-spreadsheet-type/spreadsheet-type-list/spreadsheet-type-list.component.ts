@@ -14,11 +14,12 @@ export class SpreadsheetTypeListComponent implements OnInit {
   spreadsheetTypes!: SpreadsheetType[];
   subscription!: Subscription;
 
-  constructor(private spreadsheetService : SpreadsheetService,
+  constructor(public spreadsheetService : SpreadsheetService,
     private router: Router,
     private route: ActivatedRoute) { }
 
   ngOnInit() {
+
     this.subscription = this.spreadsheetService.spreadsheetTypesChanged
       .subscribe(
         (spreadsheetTypes: SpreadsheetType[]) => {

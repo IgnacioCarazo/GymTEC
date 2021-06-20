@@ -1,4 +1,4 @@
-<div class="row">
+<div *ngIf="!this.spreadsheetService.list" class="row">
     <div class="col-xs-12">
       <button class="btn btn-success" (click)="onNewSpreadsheetType()">Agregar Tipo de Planilla</button>
     </div>
@@ -6,10 +6,21 @@
   <hr>
   <h1>Tipos de Planilla</h1>
   <div class="row">
-      <div class="col-xs-12">
+      <div *ngIf="!this.spreadsheetService.list" class="col-xs-12">
         <app-spreadsheet-type-item
           *ngFor="let spreadsheetTypeEl of spreadsheetTypes; let i = index"
           [spreadsheetType]="spreadsheetTypeEl"
           [index]="i"></app-spreadsheet-type-item>
       </div>
     </div>
+
+    <div *ngIf="this.spreadsheetService.list" class="row">
+      <div class="row">
+          <div class="col-xs-12">
+            <app-spreadsheet-type-item
+          *ngFor="let spreadsheetTypeEl of spreadsheetTypes; let i = index"
+          [spreadsheetType]="spreadsheetTypeEl"
+          [index]="i"></app-spreadsheet-type-item>
+          </div>
+        </div>
+      </div>

@@ -41,7 +41,7 @@ export class SpreadsheetTypeEditComponent implements OnInit {
       this.dataStorageService.updateSpreadsheetType(this.form.value);
     } else {
       this.spreadsheetService.addSpreadsheetType(this.form.value);
-      this.dataStorageService.storeService(this.form.value);
+      this.dataStorageService.storeSpreadsheetTypes(this.form.value);
     }
     this.onCancel();
   }

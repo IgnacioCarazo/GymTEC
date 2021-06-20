@@ -76,6 +76,7 @@ export class EmployeeEditComponent implements OnInit {
       let salary = 0;
       let role = '';
       let spreadsheetTypeID = 0;
+      let gymName = '';
       
       if (this.editMode) {
         const employee = this.employeeService.getEmployee(this.id);
@@ -94,6 +95,7 @@ export class EmployeeEditComponent implements OnInit {
         laboredHours = employee.laboredHours;
         salary = employee.salary;
         role = employee.role;
+        gymName = employee.gymName;
         }
        
   
@@ -116,6 +118,7 @@ export class EmployeeEditComponent implements OnInit {
         salary: new FormControl(salary, Validators.required),
         role: new FormControl(role, Validators.required),
         spreadsheetTypeID: new FormControl(spreadsheetTypeID, Validators.required),
+        gymName: new FormControl(gymName),
       });
     }
 }

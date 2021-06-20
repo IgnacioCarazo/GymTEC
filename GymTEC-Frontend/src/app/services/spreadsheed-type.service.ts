@@ -1,12 +1,16 @@
 import { Injectable } from "@angular/core";
 import { Subject } from "rxjs";
+import { GenerateWorksheet } from "../models/generatedSS.model";
 import { Job } from "../models/job.model";
 import { SpreadsheetType } from "../models/spreadsheet-type.model";
 
 @Injectable()
 export class SpreadsheetService {
 
+
+    public list!: boolean;
     private spreadsheetTypes: SpreadsheetType[] = [];
+    public spreadsheetGenerated: GenerateWorksheet[] = [new GenerateWorksheet];
     spreadsheetTypesChanged = new Subject<SpreadsheetType[]>();
   
     constructor() {

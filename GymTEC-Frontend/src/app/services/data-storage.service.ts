@@ -25,6 +25,7 @@ import { Product } from "../models/product.model";
 import { Service } from "../models/service.model";
 import { SpreadsheetType } from "../models/spreadsheet-type.model";
 import { Treatment } from "../models/treatment.model";
+import { GenerateWorksheet } from "../models/generatedSS.model";
 
 
 @Injectable({ providedIn: 'root' })
@@ -76,6 +77,7 @@ export class DataStorageService {
   * @returns {Observable<Admin>} An admin observable.
   */
    sendLoginInfoEmployee(email: string, password: string) {
+      console.log(email, password);
       return this.http.get<Employee>('https://localhost:5001/api/Employee/login/'+ email + '/' + password);  
   }
 
@@ -409,7 +411,7 @@ export class DataStorageService {
    updateMachineType(machineType: MachineType) {
     this.http
       .put(
-        'https://localhost:5001/api/Job',
+        'https://localhost:5001/api/MachineType',
         machineType
       )
       .subscribe(response => {
@@ -874,4 +876,27 @@ export class DataStorageService {
   * ------------------------------------------------
   */
 
+
+ /**
+  * @name fetchPlanilla()
+  * @returns An observable array of devices  
+  */
+  fetchPlanilla() {
+    return this.http
+      .get<GenerateWorksheet[]>(
+        'https://localhost:5001/api/GenerateWorksheet'
+      )
+      .pipe(
+        map((worksheets: GenerateWorksheet[]) => {
+          return worksheets.map(worksheet => {
+            return {
+              ...worksheet
+            };
+          });
+        }),
+        tap(worksheets => {
+          this.spreadsheetTypeService.spreadsheetGenerated = worksheets;
+        })
+      )
+  }
 }

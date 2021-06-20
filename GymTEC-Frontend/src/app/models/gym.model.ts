@@ -1,7 +1,7 @@
 export class Gym {
     // gym attributes
     public name!: string;
-    public phoneNumbers!: string;
+    public phoneNumber!: string;
     public spaActive!: number;
     public storeActive!: number;
     public openingDate!: string;

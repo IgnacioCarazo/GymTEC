@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SpreadsheetService } from 'src/app/services/spreadsheed-type.service';
 
 @Component({
   selector: 'app-gestion-spreadsheet-type',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GestionSpreadsheetTypeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private spreadService : SpreadsheetService) { }
 
   ngOnInit(): void {
+    this.spreadService.list = false;
+    console.log(this.spreadService.list);
+
   }
 
 }

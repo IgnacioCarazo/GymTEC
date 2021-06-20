@@ -1,10 +1,20 @@
-<div class="row">
+<div *ngIf="!this.employeeService.list" class="row">
     <div class="col-xs-12">
       <button class="btn btn-success" (click)="onNewEmployee()">Agregar Empleado</button>
     </div>
   </div>
   <hr>
-  <h1>Empleados</h1>
+  <h1 >Empleados</h1>
+  <div *ngIf="!this.employeeService.list" class="row">
+      <div class="col-xs-12">
+        <app-employee-item
+          *ngFor="let employeeEl of employees; let i = index"
+          [employee]="employeeEl"
+          [index]="i"></app-employee-item>
+      </div>
+    </div>
+
+<div *ngIf="this.employeeService.list" class="row">
   <div class="row">
       <div class="col-xs-12">
         <app-employee-item
@@ -13,3 +23,4 @@
           [index]="i"></app-employee-item>
       </div>
     </div>
+  </div>

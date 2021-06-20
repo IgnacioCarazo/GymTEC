@@ -4,25 +4,25 @@ import {
   ActivatedRouteSnapshot,
   RouterStateSnapshot
 } from '@angular/router';
-import { Gym } from '../models/gym.model';
+import { Employee } from '../models/employee.model';
 import { DataStorageService } from './data-storage.service';
-import { GymService } from './gym.service';
+import { EmployeeService } from './employee.service';
 
 
 @Injectable({ providedIn: 'root' })
-export class GymResolverService implements Resolve<Gym[]> {
+export class EmployeeResolverService implements Resolve<Employee[]> {
   constructor(
     private dataStorageService: DataStorageService,
-    private gymService: GymService
+    private employeeService: EmployeeService
   ) {}
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    const gyms = this.gymService.getGyms();
+    const employees = this.employeeService.getEmployees();
 
-    if (gyms.length === 0) {
-      return this.dataStorageService.fetchGyms();
+    if (employees.length === 0) {
+      return this.dataStorageService.fetchEmployees();
     } else {
-      return gyms;
+      return employees;
     }
   }
 }

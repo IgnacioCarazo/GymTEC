@@ -4,25 +4,25 @@ import {
   ActivatedRouteSnapshot,
   RouterStateSnapshot
 } from '@angular/router';
-import { Gym } from '../models/gym.model';
+import { Service } from '../models/service.model';
 import { DataStorageService } from './data-storage.service';
-import { GymService } from './gym.service';
+import { ServiceService } from './service.service';
 
 
 @Injectable({ providedIn: 'root' })
-export class GymResolverService implements Resolve<Gym[]> {
+export class ServiceResolverService implements Resolve<Service[]> {
   constructor(
     private dataStorageService: DataStorageService,
-    private gymService: GymService
+    private serviceService: ServiceService
   ) {}
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    const gyms = this.gymService.getGyms();
+    const services = this.serviceService.getServices();
 
-    if (gyms.length === 0) {
-      return this.dataStorageService.fetchGyms();
+    if (services.length === 0) {
+      return this.dataStorageService.fetchServices();
     } else {
-      return gyms;
+      return services;
     }
   }
 }

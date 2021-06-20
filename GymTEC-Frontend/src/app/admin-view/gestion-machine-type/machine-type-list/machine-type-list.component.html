@@ -15,14 +15,14 @@
     </div>
 
 
-    <div *ngIf="this.machineTypeService.list" class="row">
-    <div class="row">
-        <div class="col-xs-12">
-          <app-machine-type-item
-            *ngFor="let machineTypeEl of machineTypes; let i = index"
-            [machineType]="machineTypeEl"
-            [index]="i"></app-machine-type-item>
-        </div>
+  <div *ngIf="this.machineTypeService.list" class="row">
+  <div class="row">
+      <div class="col-xs-12">
+        <app-machine-type-item
+          *ngFor="let machineTypeEl of machineTypes; let i = index"
+          [machineType]="machineTypeEl"
+          [index]="i"></app-machine-type-item>
       </div>
     </div>
+  </div>
     

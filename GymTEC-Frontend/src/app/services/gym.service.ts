@@ -11,6 +11,7 @@ export class GymService {
   aP!: boolean;
   cC!: boolean;
   xX!: boolean; 
+  list!: boolean;
   
   login = false;
   client!: Client;

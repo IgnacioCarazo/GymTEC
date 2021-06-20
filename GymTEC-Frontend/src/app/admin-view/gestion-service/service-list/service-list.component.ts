@@ -15,7 +15,7 @@ export class ServiceListComponent implements OnInit {
   services!: Service[];
   subscription!: Subscription;
 
-  constructor(private serviceService : ServiceService,
+  constructor(public serviceService : ServiceService,
     private router: Router,
     private route: ActivatedRoute) { }
 
