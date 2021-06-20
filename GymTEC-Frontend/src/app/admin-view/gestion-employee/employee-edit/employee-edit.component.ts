@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { DataStorageService } from 'src/app/services/data-storage.service';
 import { EmployeeService } from 'src/app/services/employee.service';
 
 @Component({
@@ -17,7 +18,8 @@ export class EmployeeEditComponent implements OnInit {
   
   constructor(private route: ActivatedRoute,
               private employeeService: EmployeeService,
-              private router: Router) { }
+              private router: Router,
+              private dataStorageService : DataStorageService) { }
 
  
   ngOnInit() {
@@ -36,9 +38,11 @@ export class EmployeeEditComponent implements OnInit {
      console.log(this.form.value);
 
     if (this.editMode) {
-      this.employeeService.updateEmployee(this.id, this.form.value)
+      this.employeeService.updateEmployee(this.id, this.form.value);
+      this.dataStorageService.updateEmployee(this.form.value);
     } else {
-      this.employeeService.addEmployee(this.form.value)
+      this.employeeService.addEmployee(this.form.value);
+      this.dataStorageService.storeEmployee(this.form.value)
     }
     this.onCancel();
   }
@@ -71,6 +75,7 @@ export class EmployeeEditComponent implements OnInit {
       let laboredHours = 0;
       let salary = 0;
       let role = '';
+      let spreadsheetTypeID = 0;
       
       if (this.editMode) {
         const employee = this.employeeService.getEmployee(this.id);
@@ -81,6 +86,7 @@ export class EmployeeEditComponent implements OnInit {
         secondaryLastName = employee.secondaryLastName;
         province = employee.province;
         canton = employee.canton;
+        spreadsheetTypeID = employee.spreadsheetTypeID;
         district = employee.district;
         email = employee.email;
         password = employee.password;
@@ -109,6 +115,7 @@ export class EmployeeEditComponent implements OnInit {
         laboredHours: new FormControl(laboredHours, Validators.required),
         salary: new FormControl(salary, Validators.required),
         role: new FormControl(role, Validators.required),
+        spreadsheetTypeID: new FormControl(spreadsheetTypeID, Validators.required),
       });
     }
 }

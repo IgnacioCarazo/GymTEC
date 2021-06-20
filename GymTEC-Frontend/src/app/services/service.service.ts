@@ -10,7 +10,7 @@ export class ServiceService {
   
     constructor() {
   
-      this.services = [new Service("Yoga"), new Service("Spinning"), new Service("Cardio"), new Service("Zumba")];
+      this.services = [];
     }
 
      /**

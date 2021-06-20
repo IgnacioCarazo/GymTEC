@@ -76,7 +76,7 @@ export class DataStorageService {
   * @returns {Observable<Admin>} An admin observable.
   */
    sendLoginInfoEmployee(email: string, password: string) {
-      return this.http.get<Employee>('https://localhost:5001/api/Admin/login/'+ email + '/' + password);  
+      return this.http.get<Employee>('https://localhost:5001/api/Employee/login/'+ email + '/' + password);  
   }
 
   /**
@@ -107,7 +107,7 @@ export class DataStorageService {
    updateGym(gym: Gym) {
     this.http
       .put(
-        'https://localhost:5001/api/Device',
+        'https://localhost:5001/api/Gym',
         gym
       )
       .subscribe(response => {
@@ -122,7 +122,7 @@ export class DataStorageService {
   * @description deletes a gym
   */
    deleteGym(gym: Gym) {
-    this.http.delete<Gym>('https://localhost:5001/api/Device/' + gym.name, this.httpOptions).subscribe();
+    this.http.delete<Gym>('https://localhost:5001/api/Gym/' + gym.name, this.httpOptions).subscribe();
     this.fetchGyms();
   }
 
@@ -135,7 +135,7 @@ export class DataStorageService {
   storeGym(gym: Gym) {
     this.http
       .post(
-        'https://localhost:5001/api/Device',
+        'https://localhost:5001/api/Gym',
         gym, this.httpOptions
       )
       .subscribe(response => {
@@ -152,7 +152,7 @@ export class DataStorageService {
   fetchGyms() {
     return this.http
       .get<Gym[]>(
-        'https://localhost:5001/api/Device'
+        'https://localhost:5001/api/Gym'
       )
       .pipe(
         map((gyms: Gym[]) => {
@@ -184,7 +184,7 @@ export class DataStorageService {
    updateEmployee(employee: Employee) {
     this.http
       .put(
-        'https://localhost:5001/api/Device',
+        'https://localhost:5001/api/Employee',
         employee
       )
       .subscribe(response => {
@@ -199,7 +199,7 @@ export class DataStorageService {
   * @description deletes a gym
   */
    deleteEmployee(employee: Employee) {
-    this.http.delete<Employee>('https://localhost:5001/api/Device/' + employee.id, this.httpOptions).subscribe();
+    this.http.delete<Employee>('https://localhost:5001/api/Employee/' + employee.id, this.httpOptions).subscribe();
     this.fetchEmployees();
   }
 
@@ -212,7 +212,7 @@ export class DataStorageService {
    storeEmployee(employee: Employee) {
     this.http
       .post(
-        'https://localhost:5001/api/Device',
+        'https://localhost:5001/api/Employee',
         employee, this.httpOptions
       )
       .subscribe(response => {
@@ -229,7 +229,7 @@ export class DataStorageService {
    fetchEmployees() {
     return this.http
       .get<Employee[]>(
-        'https://localhost:5001/api/Device'
+        'https://localhost:5001/api/Employee'
       )
       .pipe(
         map((employees: Employee[]) => {
@@ -259,7 +259,7 @@ export class DataStorageService {
    updateGymClass(gymClass: GymClass) {
     this.http
       .put(
-        'https://localhost:5001/api/Device',
+        'https://localhost:5001/api/GymClass',
         gymClass
       )
       .subscribe(response => {
@@ -274,7 +274,7 @@ export class DataStorageService {
   * @description deletes a gym
   */
    deleteGymClass(gymClass: GymClass) {
-    this.http.delete<GymClass>('https://localhost:5001/api/Device/' + gymClass.classType, this.httpOptions).subscribe();
+    this.http.delete<GymClass>('https://localhost:5001/api/GymClass/' + gymClass.className, this.httpOptions).subscribe();
     this.fetchGymClasses();
   }
 
@@ -287,7 +287,7 @@ export class DataStorageService {
    storeGymClass(gymClass: GymClass) {
     this.http
       .post(
-        'https://localhost:5001/api/Device',
+        'https://localhost:5001/api/GymClass',
         gymClass, this.httpOptions
       )
       .subscribe(response => {
@@ -304,7 +304,7 @@ export class DataStorageService {
    fetchGymClasses() {
     return this.http
       .get<GymClass[]>(
-        'https://localhost:5001/api/Device'
+        'https://localhost:5001/api/GymClass'
       )
       .pipe(
         map((gymClasses: GymClass[]) => {
@@ -334,7 +334,7 @@ export class DataStorageService {
    updateJob(job: Job) {
     this.http
       .put(
-        'https://localhost:5001/api/Device',
+        'https://localhost:5001/api/Job',
         job
       )
       .subscribe(response => {
@@ -349,7 +349,7 @@ export class DataStorageService {
   * @description deletes a gym
   */
    deleteJob(job: Job) {
-    this.http.delete<GymClass>('https://localhost:5001/api/Device/' + job.id, this.httpOptions).subscribe();
+    this.http.delete<GymClass>('https://localhost:5001/api/Job/' + job.id, this.httpOptions).subscribe();
     this.fetchJobs();
   }
 
@@ -362,7 +362,7 @@ export class DataStorageService {
    storeJob(job: Job) {
     this.http
       .post(
-        'https://localhost:5001/api/Device',
+        'https://localhost:5001/api/Job',
         job, this.httpOptions
       )
       .subscribe(response => {
@@ -379,7 +379,7 @@ export class DataStorageService {
    fetchJobs() {
     return this.http
       .get<Job[]>(
-        'https://localhost:5001/api/Device'
+        'https://localhost:5001/api/Job'
       )
       .pipe(
         map((jobs: Job[]) => {
@@ -409,7 +409,7 @@ export class DataStorageService {
    updateMachineType(machineType: MachineType) {
     this.http
       .put(
-        'https://localhost:5001/api/Device',
+        'https://localhost:5001/api/Job',
         machineType
       )
       .subscribe(response => {
@@ -424,7 +424,7 @@ export class DataStorageService {
   * @description deletes a gym
   */
    deleteMachineTypes(machineType: MachineType) {
-    this.http.delete<MachineType>('https://localhost:5001/api/Device/' + machineType.id, this.httpOptions).subscribe();
+    this.http.delete<MachineType>('https://localhost:5001/api/MachineType/' + machineType.id, this.httpOptions).subscribe();
     this.fetchMachineTypes();
   }
 
@@ -437,7 +437,7 @@ export class DataStorageService {
    storeMachineType(machineType: MachineType) {
     this.http
       .post(
-        'https://localhost:5001/api/Device',
+        'https://localhost:5001/api/MachineType',
         machineType, this.httpOptions
       )
       .subscribe(response => {
@@ -454,7 +454,7 @@ export class DataStorageService {
    fetchMachineTypes() {
     return this.http
       .get<MachineType[]>(
-        'https://localhost:5001/api/Device'
+        'https://localhost:5001/api/MachineType'
       )
       .pipe(
         map((machineTypes: MachineType[]) => {
@@ -484,7 +484,7 @@ export class DataStorageService {
    updateMachine(machine: Machine) {
     this.http
       .put(
-        'https://localhost:5001/api/Device',
+        'https://localhost:5001/api/Machine',
         machine
       )
       .subscribe(response => {
@@ -499,7 +499,7 @@ export class DataStorageService {
   * @description deletes a gym
   */
    deleteMachine(machine: Machine) {
-    this.http.delete<Machine>('https://localhost:5001/api/Device/' + machine.serialNumber, this.httpOptions).subscribe();
+    this.http.delete<Machine>('https://localhost:5001/api/Machine/' + machine.serialNumber, this.httpOptions).subscribe();
     this.fetchMachineTypes();
   }
 
@@ -512,7 +512,7 @@ export class DataStorageService {
    storeMachine(machine: Machine) {
     this.http
       .post(
-        'https://localhost:5001/api/Device',
+        'https://localhost:5001/api/Machine',
         machine, this.httpOptions
       )
       .subscribe(response => {
@@ -529,7 +529,7 @@ export class DataStorageService {
    fetchMachines() {
     return this.http
       .get<Machine[]>(
-        'https://localhost:5001/api/Device'
+        'https://localhost:5001/api/Machine'
       )
       .pipe(
         map((machines: Machine[]) => {
@@ -560,7 +560,7 @@ export class DataStorageService {
    updateProduct(product: Product) {
     this.http
       .put(
-        'https://localhost:5001/api/Device',
+        'https://localhost:5001/api/Product',
         product
       )
       .subscribe(response => {
@@ -575,7 +575,7 @@ export class DataStorageService {
   * @description deletes a gym
   */
    deleteProduct(product:Product) {
-    this.http.delete<Product>('https://localhost:5001/api/Device/' + product.barCode, this.httpOptions).subscribe();
+    this.http.delete<Product>('https://localhost:5001/api/Product/' + product.barCode, this.httpOptions).subscribe();
     this.fetchProducts();
   }
 
@@ -588,7 +588,7 @@ export class DataStorageService {
    storeProduct(product: Product) {
     this.http
       .post(
-        'https://localhost:5001/api/Device',
+        'https://localhost:5001/api/Product',
         product, this.httpOptions
       )
       .subscribe(response => {
@@ -605,7 +605,7 @@ export class DataStorageService {
    fetchProducts() {
     return this.http
       .get<Product[]>(
-        'https://localhost:5001/api/Device'
+        'https://localhost:5001/api/Product'
       )
       .pipe(
         map((products: Product[]) => {
@@ -636,7 +636,7 @@ export class DataStorageService {
    updateService(service: Service) {
     this.http
       .put(
-        'https://localhost:5001/api/Device',
+        'https://localhost:5001/api/Service',
         service
       )
       .subscribe(response => {
@@ -651,7 +651,7 @@ export class DataStorageService {
   * @description deletes a gym
   */
    deleteService(service:Service) {
-    this.http.delete<Service>('https://localhost:5001/api/Device/' + service.id, this.httpOptions).subscribe();
+    this.http.delete<Service>('https://localhost:5001/api/Service/' + service.id, this.httpOptions).subscribe();
     this.fetchServices();
   }
 
@@ -664,7 +664,7 @@ export class DataStorageService {
    storeService(service: Service) {
     this.http
       .post(
-        'https://localhost:5001/api/Device',
+        'https://localhost:5001/api/Service',
         service, this.httpOptions
       )
       .subscribe(response => {
@@ -681,7 +681,7 @@ export class DataStorageService {
    fetchServices() {
     return this.http
       .get<Service[]>(
-        'https://localhost:5001/api/Device'
+        'https://localhost:5001/api/Service'
       )
       .pipe(
         map((services: Service[]) => {
@@ -711,7 +711,7 @@ export class DataStorageService {
    updateSpreadsheetType(spreadsheetType: SpreadsheetType) {
     this.http
       .put(
-        'https://localhost:5001/api/Device',
+        'https://localhost:5001/api/SpreadsheetType',
         spreadsheetType
       )
       .subscribe(response => {
@@ -726,7 +726,7 @@ export class DataStorageService {
   * @description deletes a gym
   */
    deleteSpreadsheetType(spreadsheetType:SpreadsheetType) {
-    this.http.delete<SpreadsheetType>('https://localhost:5001/api/Device/' + spreadsheetType.id, this.httpOptions).subscribe();
+    this.http.delete<SpreadsheetType>('https://localhost:5001/api/SpreadsheetType/' + spreadsheetType.id, this.httpOptions).subscribe();
     this.fetchSpreadsheetTypes();
   }
 
@@ -739,7 +739,7 @@ export class DataStorageService {
    storeSpreadsheetTypes(spreadsheetType: SpreadsheetType) {
     this.http
       .post(
-        'https://localhost:5001/api/Device',
+        'https://localhost:5001/api/SpreadsheetType',
         spreadsheetType, this.httpOptions
       )
       .subscribe(response => {
@@ -756,7 +756,7 @@ export class DataStorageService {
    fetchSpreadsheetTypes() {
     return this.http
       .get<SpreadsheetType[]>(
-        'https://localhost:5001/api/Device'
+        'https://localhost:5001/api/SpreadsheetType'
       )
       .pipe(
         map((spreadsheetTypes: SpreadsheetType[]) => {
@@ -786,7 +786,7 @@ export class DataStorageService {
    updateTreatment(treatment: Treatment) {
     this.http
       .put(
-        'https://localhost:5001/api/Device',
+        'https://localhost:5001/api/Treatment',
         treatment
       )
       .subscribe(response => {
@@ -801,7 +801,7 @@ export class DataStorageService {
   * @description deletes a gym
   */
    deleteTreatments(treatment:Treatment) {
-    this.http.delete<Treatment>('https://localhost:5001/api/Device/' + treatment.id, this.httpOptions).subscribe();
+    this.http.delete<Treatment>('https://localhost:5001/api/Treatment/' + treatment.id, this.httpOptions).subscribe();
     this.fetchTreatments();
   }
 
@@ -814,7 +814,7 @@ export class DataStorageService {
    storeTreatments(treatment: Treatment) {
     this.http
       .post(
-        'https://localhost:5001/api/Device',
+        'https://localhost:5001/api/Treatment',
         treatment, this.httpOptions
       )
       .subscribe(response => {
@@ -831,7 +831,7 @@ export class DataStorageService {
    fetchTreatments() {
     return this.http
       .get<Treatment[]>(
-        'https://localhost:5001/api/Device'
+        'https://localhost:5001/api/Treatment'
       )
       .pipe(
         map((treatments: Treatment[]) => {

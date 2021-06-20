@@ -13,11 +13,12 @@ export class MachineTypeListComponent implements OnInit {
   machineTypes!: MachineType[];
   subscription!: Subscription;
 
-  constructor(private machineTypeService : MachineTypeService,
+  constructor(public machineTypeService : MachineTypeService,
     private router: Router,
     private route: ActivatedRoute) { }
 
   ngOnInit() {
+    
     this.subscription = this.machineTypeService.machineTypesChangerd
       .subscribe(
         (machineTypes: MachineType[]) => {

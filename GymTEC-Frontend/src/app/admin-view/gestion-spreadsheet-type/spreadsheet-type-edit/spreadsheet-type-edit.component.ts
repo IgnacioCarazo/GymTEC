@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { DataStorageService } from 'src/app/services/data-storage.service';
 import { SpreadsheetService } from 'src/app/services/spreadsheed-type.service';
 
 @Component({
@@ -16,7 +17,8 @@ export class SpreadsheetTypeEditComponent implements OnInit {
   
   constructor(private route: ActivatedRoute,
               private spreadsheetService: SpreadsheetService,
-              private router: Router) { }
+              private router: Router,
+              private dataStorageService : DataStorageService) { }
 
  
   ngOnInit() {
@@ -35,9 +37,11 @@ export class SpreadsheetTypeEditComponent implements OnInit {
      console.log(this.form.value);
 
     if (this.editMode) {
-      this.spreadsheetService.updateSpreadsheetType(this.id, this.form.value)
+      this.spreadsheetService.updateSpreadsheetType(this.id, this.form.value);
+      this.dataStorageService.updateSpreadsheetType(this.form.value);
     } else {
-      this.spreadsheetService.addSpreadsheetType(this.form.value)
+      this.spreadsheetService.addSpreadsheetType(this.form.value);
+      this.dataStorageService.storeService(this.form.value);
     }
     this.onCancel();
   }

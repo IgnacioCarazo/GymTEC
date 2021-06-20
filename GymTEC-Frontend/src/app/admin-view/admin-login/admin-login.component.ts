@@ -34,7 +34,7 @@ export class AdminLoginComponent implements OnInit {
     this.dataStorageService.sendLoginInfoEmployee(loginForm.value.email,loginForm.value.passwordd).
             subscribe( employee => {
                 this.employee = employee;
-                if (this.employee.id !== 0) {
+                if (this.employee.role === "Administrador") {
                   this.adminService.login = true; 
                   this.router.navigate(['/admin/gestion-sucursales']);
                 }     

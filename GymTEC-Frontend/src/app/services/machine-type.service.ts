@@ -8,10 +8,11 @@ export class MachineTypeService {
 
     private machineTypes: MachineType[] = [];
     machineTypesChangerd = new Subject<MachineType[]>();
+    public list!: boolean;
   
     constructor() {
   
-      this.machineTypes = [new MachineType("Cinta de correr"), new MachineType("Bicicleta Estacionaria"), new MachineType("Mancuernas"), new MachineType("Remos")];
+      this.machineTypes = [];
     }
 
    /**

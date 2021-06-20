@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { DataStorageService } from 'src/app/services/data-storage.service';
 import { MachineTypeService } from 'src/app/services/machine-type.service';
 
 @Component({
@@ -16,7 +17,8 @@ export class MachineTypeEditComponent implements OnInit {
   
   constructor(private route: ActivatedRoute,
               private machineTypeService: MachineTypeService,
-              private router: Router) { }
+              private router: Router,
+              private dataStorageService : DataStorageService) { }
 
  
   ngOnInit() {
@@ -35,9 +37,11 @@ export class MachineTypeEditComponent implements OnInit {
      console.log(this.form.value);
 
     if (this.editMode) {
-      this.machineTypeService.updateMachineType(this.id, this.form.value)
+      this.machineTypeService.updateMachineType(this.id, this.form.value);
+      this.dataStorageService.updateMachineType(this.form.value);
     } else {
-      this.machineTypeService.addMachineType(this.form.value)
+      this.machineTypeService.addMachineType(this.form.value);
+      this.dataStorageService.storeMachineType(this.form.value);
     }
     this.onCancel();
   }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router, Params } from '@angular/router';
+import { DataStorageService } from 'src/app/services/data-storage.service';
 import { ServiceService } from 'src/app/services/service.service';
 import { TreatmentService } from 'src/app/services/treatment.service';
 
@@ -17,7 +18,8 @@ export class ServiceEditComponent implements OnInit {
   
   constructor(private route: ActivatedRoute,
               private serviceService: ServiceService,
-              private router: Router) { }
+              private router: Router,
+              private dataStorageService : DataStorageService) { }
 
  
   ngOnInit() {
@@ -36,9 +38,11 @@ export class ServiceEditComponent implements OnInit {
      console.log(this.form.value);
 
     if (this.editMode) {
-      this.serviceService.updateService(this.id, this.form.value)
+      this.serviceService.updateService(this.id, this.form.value);
+      this.dataStorageService.updateService(this.form.value);
     } else {
-      this.serviceService.addService(this.form.value)
+      this.serviceService.addService(this.form.value);
+      this.dataStorageService.storeService(this.form.value);
     }
     this.onCancel();
   }

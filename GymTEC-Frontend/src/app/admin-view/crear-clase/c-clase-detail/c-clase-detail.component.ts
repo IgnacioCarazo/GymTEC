@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { GymClass } from 'src/app/models/gymclass.model';
+import { DataStorageService } from 'src/app/services/data-storage.service';
 import { GymClassService } from 'src/app/services/gymclass.service';
 
 @Component({
@@ -16,7 +17,8 @@ export class CClaseDetailComponent implements OnInit {
 
   constructor(private classService: GymClassService,
     private route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router,
+    private dataStorageService : DataStorageService) { }
 
   ngOnInit() {
     this.route.params
@@ -46,7 +48,7 @@ export class CClaseDetailComponent implements OnInit {
   * @description Deletes the current class and sets the link back to '/crear clase'.
   */
    onDeleteClass() {
-    //this.dataStorageService.deleteDevice(this.device);
+    this.dataStorageService.deleteGymClass(this.gymClass);
     this.classService.deleteClass(this.id);
   }
 

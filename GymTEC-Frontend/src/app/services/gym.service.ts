@@ -19,7 +19,7 @@ export class GymService {
 
   constructor() {
 
-    this.gyms = [new Gym("Golds 1"), new Gym("Golds 2"), new Gym("Golds 3"), new Gym("Golds 4")]
+    this.gyms = []
   }
 
    /**

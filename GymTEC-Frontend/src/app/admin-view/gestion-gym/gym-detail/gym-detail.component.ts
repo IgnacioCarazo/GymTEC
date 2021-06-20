@@ -12,6 +12,7 @@ import { ServiceService } from 'src/app/services/service.service';
 import { TreatmentService } from 'src/app/services/treatment.service';
 import { of } from 'rxjs';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { DataStorageService } from 'src/app/services/data-storage.service';
 
 @Component({
   selector: 'app-gym-detail',
@@ -50,7 +51,8 @@ export class GymDetailComponent implements OnInit {
     private serviceService: ServiceService,
     private route: ActivatedRoute,
     private router: Router,
-    private formBuilder: FormBuilder) { 
+    private formBuilder: FormBuilder,
+    private dataStorageService: DataStorageService) { 
 
       this.formI = this.formBuilder.group({
         machines: ['']
@@ -126,7 +128,6 @@ export class GymDetailComponent implements OnInit {
       this.productService.updateProduct(this.productService.getProductIndexBySN(this.formP.value.products),this.product);  
     }
     if (this.gymService.aT) {
-      console.log(this.gym.spaTreatments);
       this.treatment = this.treatmentService.getTreatmentByID(parseInt(this.formT.value.treatments));
       this.treatment.gymName = this.gym.name;
       this.treatmentService.updateTreatment(this.treatmentService.getTreatmentIndexByID(parseInt(this.formT.value.treatments)),this.treatment);  
@@ -149,7 +150,7 @@ export class GymDetailComponent implements OnInit {
   * @description Deletes the current device and sets the link back to '/devices'.
   */
    onDeleteGym() {
-    //this.dataStorageService.deleteDevice(this.device);
+    this.dataStorageService.deleteGym(this.gym);
     this.gymService.deleteGym(this.id);
   }
 
@@ -173,7 +174,6 @@ export class GymDetailComponent implements OnInit {
       this.machines = this.machineService.getGymMachines(this.gymService.getGym(this.id).name, 1);
     }
     
-    //this.treatments = this.treatmentService.getGymTreatments(this.gymService.getGym(this.id).name, 1);
 
   }
   

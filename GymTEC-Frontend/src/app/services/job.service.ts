@@ -10,7 +10,7 @@ export class JobService {
   
     constructor() {
   
-      this.jobs = [new Job("Administrador"), new Job("Dep. Spa"), new Job("dep. Tienda"), new Job("Instructor")];
+      this.jobs = [];
     }
 
    /**

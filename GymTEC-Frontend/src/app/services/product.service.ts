@@ -11,7 +11,7 @@ export class ProductService {
   
     constructor() {
   
-      this.products = [new Product("Producto 1"), new Product("Producto 2"), new Product("Producto 3")];
+      this.products = [];
     }
    /**
   * @name setProducts()
@@ -101,7 +101,7 @@ export class ProductService {
     * @description It searches a product by its barCode
     * @returns {Product} A product 
     */
-       getProductBySN(barCode: string): any {
+       getProductBySN(barCode: number): any {
         for (let product of this.products) {
             if (product.barCode === barCode) {
               return product;
@@ -114,7 +114,7 @@ export class ProductService {
 * @description It searches a machine by its index
 * @returns {Product} A product 
 */
-  getProductIndexBySN(barCode: string): any {
+  getProductIndexBySN(barCode: number): any {
     let cont = 0;
     for (let product of this.products) {
         if (product.barCode === barCode) {

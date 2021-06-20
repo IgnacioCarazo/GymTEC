@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { DataStorageService } from 'src/app/services/data-storage.service';
 import { TreatmentService } from 'src/app/services/treatment.service';
 
 @Component({
@@ -17,7 +18,8 @@ export class TratamientosEditComponent implements OnInit {
   store!: boolean;
   constructor(private route: ActivatedRoute,
               private treatmentService: TreatmentService,
-              private router: Router) { }
+              private router: Router,
+              private dataStorageService : DataStorageService) { }
 
  
   ngOnInit() {
@@ -36,9 +38,11 @@ export class TratamientosEditComponent implements OnInit {
      console.log(this.treatmentForm.value);
 
     if (this.editMode) {
-      this.treatmentService.updateTreatment(this.id, this.treatmentForm.value)
+      this.treatmentService.updateTreatment(this.id, this.treatmentForm.value);
+      this.dataStorageService.updateTreatment(this.treatmentForm.value);
     } else {
       this.treatmentService.addTreatment(this.treatmentForm.value)
+      this.dataStorageService.storeTreatments(this.treatmentForm.value);
     }
     this.onCancel();
   }

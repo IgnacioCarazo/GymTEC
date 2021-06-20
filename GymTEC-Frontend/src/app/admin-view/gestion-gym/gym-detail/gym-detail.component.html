@@ -62,6 +62,7 @@
     <div class="row" style="margin-top: 10px;">
       <div class="col-xs-12">
           <h1>Sucursal {{ gym.name }}</h1>
+          <h4>Abierto de {{gym.businessHours}}</h4>
           <h4 *ngIf="gym.storeActive">Spa</h4>
           <h4 *ngIf="gym.spaActive">Tienda</h4>
       </div>

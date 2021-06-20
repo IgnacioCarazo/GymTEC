@@ -10,7 +10,7 @@ export class MachineService {
   
     constructor() {
   
-      this.machines = [new Machine("Machine 1"), new Machine("Machine 2"), new Machine("Machine 3"), new Machine("Machine 4")];
+      this.machines = [];
     }
 
  /**
