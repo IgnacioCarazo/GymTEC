@@ -37,9 +37,11 @@ export class JobEditComponent implements OnInit {
      console.log(this.form.value);
 
     if (this.editMode) {
-      this.jobService.updateJob(this.id, this.form.value)
+      this.jobService.updateJob(this.id, this.form.value);
+      this.dataStorageService.updateJob(this.form.value);
     } else {
-      this.jobService.addJob(this.form.value)
+      this.jobService.addJob(this.form.value);
+      this.dataStorageService.storeJob(this.form.value);
     }
     this.onCancel();
   }
