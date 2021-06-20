@@ -13,6 +13,7 @@ export class Employee {
     public laboredHours!: number;
     public salary!: number;
     public role!: string;
+    public spreadsheetTypeID!: number;
 
     // foreign attributes
     public gymName!: string;
@@ -20,9 +21,7 @@ export class Employee {
     constructor (name: string) {
         this.name = name;
         this.id = 45;
-        this.primaryLastName = "Carazo";
-        this.secondaryLastName = "Nieto";
-        this.role = "Administrador";
+        
         
     }
 }

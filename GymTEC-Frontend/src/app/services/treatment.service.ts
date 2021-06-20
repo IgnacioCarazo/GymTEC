@@ -10,7 +10,7 @@ export class TreatmentService {
   
     constructor() {
   
-      this.treatments = [new Treatment("Masaje relajante"), new Treatment("Masaje muscular"), new Treatment("Manicure")];
+      this.treatments = [];
     }
 
    /**

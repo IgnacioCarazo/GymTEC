@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { SpreadsheetType } from 'src/app/models/spreadsheet-type.model';
+import { DataStorageService } from 'src/app/services/data-storage.service';
 import { SpreadsheetService } from 'src/app/services/spreadsheed-type.service';
 
 @Component({
@@ -15,7 +16,8 @@ export class SpreadsheetTypeDetailComponent implements OnInit {
 
   constructor(private spreatsheetService: SpreadsheetService,
     private route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router,
+    private dataStorageService : DataStorageService) { }
 
   ngOnInit() {
     this.route.params
@@ -40,7 +42,7 @@ export class SpreadsheetTypeDetailComponent implements OnInit {
   * @description Deletes the current device and sets the link back to '/devices'.
   */
    onDeleteSpreadsheetType() {
-    //this.dataStorageService.deleteDevice(this.device);
+    this.dataStorageService.deleteSpreadsheetType(this.spreadsheetType);
     this.spreatsheetService.deleteSpreadsheetType(this.id);
   }
 

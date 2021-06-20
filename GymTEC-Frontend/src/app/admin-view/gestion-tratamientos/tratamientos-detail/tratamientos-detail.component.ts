@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Treatment } from 'src/app/models/treatment.model';
+import { DataStorageService } from 'src/app/services/data-storage.service';
 import { TreatmentService } from 'src/app/services/treatment.service';
 
 @Component({
@@ -15,7 +16,8 @@ export class TratamientosDetailComponent implements OnInit {
 
   constructor(private treatmentService: TreatmentService,
     private route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router,
+    private dataStorageService : DataStorageService) { }
 
   ngOnInit() {
     this.route.params
@@ -40,7 +42,7 @@ export class TratamientosDetailComponent implements OnInit {
   * @description Deletes the current device and sets the link back to '/devices'.
   */
    onDeleteTreatment() {
-    //this.dataStorageService.deleteDevice(this.device);
+    this.dataStorageService.deleteTreatments(this.treatment);
     this.treatmentService.deleteTreatment(this.id);
   }
 

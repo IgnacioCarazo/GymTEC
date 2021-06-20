@@ -11,7 +11,7 @@ export class SpreadsheetService {
   
     constructor() {
   
-      this.spreadsheetTypes = [new SpreadsheetType("Pago mensual"), new SpreadsheetType("Pago por clase"), new SpreadsheetType("Pago por hora")];
+      this.spreadsheetTypes = [];
     }
 
    /**

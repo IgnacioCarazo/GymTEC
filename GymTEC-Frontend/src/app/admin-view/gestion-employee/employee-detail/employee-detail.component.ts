@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { Employee } from 'src/app/models/employee.model';
+import { DataStorageService } from 'src/app/services/data-storage.service';
 import { EmployeeService } from 'src/app/services/employee.service';
 
 @Component({
@@ -15,7 +16,8 @@ export class EmployeeDetailComponent implements OnInit {
 
   constructor(private employeeService: EmployeeService,
     private route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router,
+    private dataStorageService : DataStorageService) { }
 
   ngOnInit() {
     this.route.params
@@ -40,7 +42,7 @@ export class EmployeeDetailComponent implements OnInit {
   * @description Deletes the current employee and sets the link back to '/employees'.
   */
    onDeleteEmployee() {
-    //this.dataStorageService.deleteDevice(this.device);
+    this.dataStorageService.deleteEmployee(this.employee);
     this.employeeService.deleteEmployee(this.id);
   }
 

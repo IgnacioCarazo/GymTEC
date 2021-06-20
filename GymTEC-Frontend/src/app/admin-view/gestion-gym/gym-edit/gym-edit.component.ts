@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { DataStorageService } from 'src/app/services/data-storage.service';
 import { GymService } from 'src/app/services/gym.service';
 
 @Component({
@@ -18,7 +19,8 @@ export class GymEditComponent implements OnInit {
   store2!: number;
   constructor(private route: ActivatedRoute,
               private gymService: GymService,
-              private router: Router) { }
+              private router: Router,
+              private dataStorageService : DataStorageService) { }
 
  
   ngOnInit() {
@@ -53,8 +55,12 @@ export class GymEditComponent implements OnInit {
     
     if (this.editMode) {
       this.gymService.updateGym(this.id, this.gymForm.value)
+      this.dataStorageService.updateGym(this.gymForm.value);
+
     } else {
       this.gymService.addGym(this.gymForm.value)
+      this.dataStorageService.storeGym(this.gymForm.value);
+
     }
     this.onCancel();
   }

@@ -12,7 +12,7 @@ export class EmployeeService {
   
     constructor() {
   
-      this.employees = [new Employee("Nacho"),new Employee("Haziel"),new Employee("Joseph")];
+      this.employees = [];
     }
 
   /**

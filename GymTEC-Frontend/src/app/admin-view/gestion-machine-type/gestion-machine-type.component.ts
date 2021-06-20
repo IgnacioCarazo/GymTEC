@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MachineTypeService } from 'src/app/services/machine-type.service';
 
 @Component({
   selector: 'app-gestion-machine-type',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GestionMachineTypeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private machineTypeService : MachineTypeService) { }
 
   ngOnInit(): void {
+    this.machineTypeService.list = false;
+    console.log(this.machineTypeService.list);
   }
 
 }

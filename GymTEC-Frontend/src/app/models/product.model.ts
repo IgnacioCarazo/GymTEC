@@ -1,6 +1,6 @@
 export class Product {
     // product attributes
-    public barCode!: string;
+    public barCode!: number;
     public name!: string;
     public cost!: number;
     public description!: string;

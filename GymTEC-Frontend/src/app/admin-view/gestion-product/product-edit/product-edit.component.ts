@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router, Params } from '@angular/router';
+import { DataStorageService } from 'src/app/services/data-storage.service';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -16,7 +17,8 @@ export class ProductEditComponent implements OnInit {
   
   constructor(private route: ActivatedRoute,
               private productService: ProductService,
-              private router: Router) { }
+              private router: Router,
+              private dataStorageService : DataStorageService) { }
 
  
   ngOnInit() {
@@ -35,9 +37,11 @@ export class ProductEditComponent implements OnInit {
      console.log(this.form.value);
 
     if (this.editMode) {
-      this.productService.updateProduct(this.id, this.form.value)
+      this.productService.updateProduct(this.id, this.form.value);
+      this.dataStorageService.updateProduct(this.form.value);
     } else {
-      this.productService.addProduct(this.form.value)
+      this.productService.addProduct(this.form.value);
+      this.dataStorageService.storeProduct(this.form.value);
     }
     this.onCancel();
   }
@@ -57,7 +61,7 @@ export class ProductEditComponent implements OnInit {
   */
     private initForm() {
       let name = '';
-      let barCode = '';
+      let barCode = 0;
       let cost = 0;
       let description = '';
       

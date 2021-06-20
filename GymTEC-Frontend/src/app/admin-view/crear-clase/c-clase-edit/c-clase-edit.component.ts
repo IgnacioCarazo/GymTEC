@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router, Params } from '@angular/router';
+import { DataStorageService } from 'src/app/services/data-storage.service';
 import { GymClassService } from 'src/app/services/gymclass.service';
 
 @Component({
@@ -16,7 +17,8 @@ export class CClaseEditComponent implements OnInit {
   
   constructor(private route: ActivatedRoute,
               private classService: GymClassService,
-              private router: Router) { }
+              private router: Router,
+              private dataStorageService : DataStorageService) { }
 
  
   ngOnInit() {
@@ -40,8 +42,10 @@ export class CClaseEditComponent implements OnInit {
 
     if (this.editMode) {
       this.classService.updateClass(this.id, this.form.value);
+      this.dataStorageService.updateGymClass(this.form.value);
     } else {
       this.classService.addClass(this.form.value);
+      this.dataStorageService.storeGymClass(this.form.value);
     }
     console.log(this.form.value);
 
@@ -70,8 +74,8 @@ export class CClaseEditComponent implements OnInit {
       let capacity = 0;
       let isGrupal = 0;
       let instructorID = 0;
-      let classType = '';
-      let classTypeID = '';
+      let className = '';
+      let serviceID = '';
       
       if (this.editMode) {
         const gymClass = this.classService.getClass(this.id);
@@ -81,8 +85,8 @@ export class CClaseEditComponent implements OnInit {
         capacity = gymClass.capacity;
         isGrupal = gymClass.isGrupal;
         instructorID = gymClass.instructorID;
-        classType = gymClass.classType;
-        classTypeID = gymClass.classTypeID;
+        className = gymClass.className;
+        serviceID = gymClass.serviceID;
         }
     
   
@@ -93,8 +97,8 @@ export class CClaseEditComponent implements OnInit {
         capacity: new FormControl(capacity, Validators.required),
         isGrupal: new FormControl(isGrupal, Validators.required),
         instructorID: new FormControl(instructorID, Validators.required),
-        classType: new FormControl(classType, Validators.required),
-        classTypeID: new FormControl(classTypeID, Validators.required),
+        className: new FormControl(className, Validators.required),
+        serviceID: new FormControl(serviceID, Validators.required),
       });
     }
 }

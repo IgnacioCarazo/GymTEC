@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Machine } from 'src/app/models/machine.model';
 import { Service } from 'src/app/models/service.model';
+import { MachineTypeService } from 'src/app/services/machine-type.service';
 import { MachineService } from 'src/app/services/machine.service';
 
 @Component({
@@ -16,6 +17,7 @@ export class MachineListComponent implements OnInit {
   subscription!: Subscription;
 
   constructor(private machineService : MachineService,
+    public machineTypeService : MachineTypeService,
     private router: Router,
     private route: ActivatedRoute) { }
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { DataStorageService } from 'src/app/services/data-storage.service';
 import { JobService } from 'src/app/services/job.service';
 
 @Component({
@@ -16,7 +17,8 @@ export class JobEditComponent implements OnInit {
   
   constructor(private route: ActivatedRoute,
               private jobService: JobService,
-              private router: Router) { }
+              private router: Router,
+              private dataStorageService : DataStorageService) { }
 
  
   ngOnInit() {
