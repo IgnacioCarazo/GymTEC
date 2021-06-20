@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Employee } from 'src/app/models/employee.model';
 import { EmployeeService } from 'src/app/services/employee.service';
+import { GymService } from 'src/app/services/gym.service';
 
 @Component({
   selector: 'app-employee-list',
@@ -14,9 +15,10 @@ export class EmployeeListComponent implements OnInit {
   employees!: Employee[];
   subscription!: Subscription;
 
-  constructor(private employeeService : EmployeeService,
+  constructor(public employeeService : EmployeeService,
     private router: Router,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    public gymService : GymService) { }
 
   ngOnInit() {
     this.subscription = this.employeeService.employeesChanged

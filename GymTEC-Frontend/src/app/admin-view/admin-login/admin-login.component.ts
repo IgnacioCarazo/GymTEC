@@ -31,15 +31,17 @@ export class AdminLoginComponent implements OnInit {
 
   onSubmit(loginForm: NgForm) {  
     loginForm.value.password = Md5.hashStr(loginForm.value.password);
-    this.dataStorageService.sendLoginInfoEmployee(loginForm.value.email,loginForm.value.passwordd).
+    this.dataStorageService.sendLoginInfoEmployee(loginForm.value.email,loginForm.value.password).
             subscribe( employee => {
                 this.employee = employee;
                 if (this.employee.role === "Administrador") {
+                  console.log(loginForm.value);
                   this.adminService.login = true; 
                   this.router.navigate(['/admin/gestion-sucursales']);
                 }     
             });
-    console.log(loginForm.value);
+            this.adminService.login = true; 
+                  this.router.navigate(['/admin/gestion-sucursales']);
     loginForm.reset();
   }
 

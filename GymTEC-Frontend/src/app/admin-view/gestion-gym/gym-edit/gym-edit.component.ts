@@ -85,7 +85,8 @@ export class GymEditComponent implements OnInit {
       let openingDate = '';
       let businessHours = '';
       let maxCapacity = 0;
-      let phoneNumbers = '';
+      let phoneNumber = '';
+      let adminID = 0;
 
       if (this.editMode) {
         const gym = this.gymService.getGym(this.id);
@@ -117,7 +118,8 @@ export class GymEditComponent implements OnInit {
         openingDate = gym.openingDate;
         businessHours = gym.businessHours;
         maxCapacity = gym.maxCapacity;
-        phoneNumbers = gym.phoneNumbers;
+        phoneNumber = gym.phoneNumber;
+        adminID = gym.adminID;
         }
        
   
@@ -132,7 +134,8 @@ export class GymEditComponent implements OnInit {
         openingDate: new FormControl(openingDate, Validators.required),
         businessHours: new FormControl(businessHours),
         maxCapacity: new FormControl(maxCapacity, Validators.required),
-        phoneNumbers: new FormControl(phoneNumbers, Validators.required),
+        phoneNumber: new FormControl(phoneNumber, Validators.required),
+        adminID: new FormControl(adminID, Validators.required)
       });
     }
 }

@@ -5,24 +5,26 @@ import {
   RouterStateSnapshot
 } from '@angular/router';
 import { Gym } from '../models/gym.model';
+import { GymClass } from '../models/gymclass.model';
 import { DataStorageService } from './data-storage.service';
 import { GymService } from './gym.service';
+import { GymClassService } from './gymclass.service';
 
 
 @Injectable({ providedIn: 'root' })
-export class GymResolverService implements Resolve<Gym[]> {
+export class GymClassResolverService implements Resolve<GymClass[]> {
   constructor(
     private dataStorageService: DataStorageService,
-    private gymService: GymService
+    private gymClassService: GymClassService
   ) {}
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    const gyms = this.gymService.getGyms();
+    const gymClasses = this.gymClassService.getClasses();
 
-    if (gyms.length === 0) {
-      return this.dataStorageService.fetchGyms();
+    if (gymClasses.length === 0) {
+      return this.dataStorageService.fetchGymClasses();
     } else {
-      return gyms;
+      return gymClasses;
     }
   }
 }

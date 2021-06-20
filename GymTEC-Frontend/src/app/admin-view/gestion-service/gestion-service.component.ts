@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Service } from 'src/app/models/service.model';
+import { ServiceService } from 'src/app/services/service.service';
 
 @Component({
   selector: 'app-gestion-service',
@@ -7,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GestionServiceComponent implements OnInit {
 
-  constructor() { }
+  constructor(private serviceService : ServiceService) { }
 
   ngOnInit(): void {
+    this.serviceService.list = false;
   }
 
 }

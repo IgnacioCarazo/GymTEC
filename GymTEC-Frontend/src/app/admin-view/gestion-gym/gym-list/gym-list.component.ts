@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { Employee } from 'src/app/models/employee.model';
 import { Gym } from 'src/app/models/gym.model';
 import { GymService } from 'src/app/services/gym.service';
 
@@ -11,6 +12,7 @@ import { GymService } from 'src/app/services/gym.service';
 })
 export class GymListComponent implements OnInit {
 
+  employees!: Employee[];
   gyms!: Gym[];
   subscription!: Subscription;
 

@@ -6,6 +6,7 @@ import { Employee } from "../models/employee.model";
 @Injectable()
 export class EmployeeService {
 
+    public list!: boolean;
     private employees: Employee[] = [];
     public employee!: Employee;
     employeesChanged = new Subject<Employee[]>();

@@ -5,3 +5,27 @@
         <button style="margin-top: 5px;" type="button" class="btn btn-normal" (click)="generarPlanilla()">Generar Planilla</button>
     </div>
 </div>
+
+<table class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
+          <th scope="col">Sucursal</th>
+          <th scope="col">Empleado</th>
+          <th scope="col">Cedula</th>
+          <th scope="col">Horas Laboradas</th>
+          <th scope="col">Clases Impartidas</th>
+          <th scope="col">Tipo de Plantilla</th>
+          <th scope="col">Monto a pagar</th>
+
+
+        </tr>
+      </thead>
+    <tbody>
+        <tr *ngFor="let row of lista">
+            <td *ngFor="let cell of row">
+                {{ cell }}
+            </td>
+        </tr>
+    </tbody>
+</table>
+<hr>

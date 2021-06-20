@@ -12,7 +12,4 @@ export class Client {
     public imc!: number;
     public birthDate!: string;
     public address!: string;
-
-    // foreign attributes
-    public gymName!: string;
     }
