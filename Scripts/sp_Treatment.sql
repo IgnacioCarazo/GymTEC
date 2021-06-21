@@ -1,25 +1,17 @@
 -------------------CREATE SP------------------------
 CREATE PROCEDURE sp_TreatmentCreate
-	   @id INT,
-	   @name VARCHAR(10),
-	   @gymName VARCHAR(10)
+	   @name VARCHAR(40),
+	   @gymName VARCHAR(40)
 AS
 BEGIN
 INSERT INTO Treatment  (
-	   id,
+	   
 	   name,
 	   gymName)
     VALUES (
-	   @id,
+	  
 	   @name,
 	   @gymName)
-SET @id = SCOPE_IDENTITY() 
-SELECT 
-	   id = @id,
-	   name = @name,
-	   gymName = @gymName
-FROM Treatment 
-WHERE  id = @id
 END
 -------------------READ SP------------------------
 GO
@@ -36,12 +28,12 @@ GO
 
 CREATE PROC sp_TreatmentUpdate
 	  @id INT,
-	  @name VARCHAR(10),
-	  @gymName VARCHAR(10)
+	  @name VARCHAR(40),
+	  @gymName VARCHAR(40)
 AS 
 BEGIN 
 UPDATE Treatment
-SET  id = @id,
+SET  
 	 name = @name,
 	 gymName = @gymName
 WHERE  id = @id
@@ -58,3 +50,4 @@ FROM   Treatment
 WHERE  id = @id
 END
 GO
+
