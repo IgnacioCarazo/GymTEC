@@ -24,6 +24,7 @@ export class ClasesComponent implements OnInit {
     for (let item of this.classes) {
       let lista_aux = [];
       lista_aux.push(item.className);
+      lista_aux.push(item.gymName);
       lista_aux.push(item.date);
       lista_aux.push(item.startTime);
       lista_aux.push(item.finnishTime);
