@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Job } from 'src/app/models/job.model';
+import { JobService } from 'src/app/services/job.service';
 
 @Component({
   selector: 'app-job-item',
@@ -11,9 +12,10 @@ export class JobItemComponent implements OnInit {
   @Input() job!: Job;
   @Input() index!: number;
 
-  constructor() { }
+  constructor(public jobService : JobService) { }
 
   ngOnInit(): void {
+
   }
 
 }

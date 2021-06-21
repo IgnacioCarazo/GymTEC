@@ -5,6 +5,7 @@ import { GymClass } from "../models/gymclass.model";
 @Injectable()
 export class GymClassService {
   
+  classes_string: any[] = [];
   private classes: GymClass[] = [];
   classesChanged = new Subject<GymClass[]>();
 

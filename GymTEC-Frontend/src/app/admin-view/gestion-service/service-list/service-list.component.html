@@ -4,7 +4,7 @@
     </div>
   </div>
   <hr>
-  <h1>Servicios</h1>
+  <h1 *ngIf="!this.serviceService.list"> Servicios</h1>
   <div *ngIf="!this.serviceService.list" class="row">
       <div class="col-xs-12">
         <app-service-item
@@ -13,6 +13,7 @@
           [index]="i"></app-service-item>
       </div>
     </div>
+    <h1 *ngIf="this.serviceService.list"> Tipo de Clase</h1>
 
     <div *ngIf="this.serviceService.list" class="row">
       <div class="col-xs-12">

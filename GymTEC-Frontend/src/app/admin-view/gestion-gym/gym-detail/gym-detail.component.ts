@@ -121,20 +121,20 @@ export class GymDetailComponent implements OnInit {
       this.machine = this.machineService.getMachineBySN(parseInt(this.formI.value.machines));
       this.machine.gymName = this.gym.name;
       this.machineService.updateMachine(this.machineService.getMachineIndexBySN(parseInt(this.formI.value.machines)),this.machine);
-      this.dataStorageService.updateMachine(this.formI.value);  
+      this.dataStorageService.updateMachine(this.machine);  
     }
     if (this.gymService.aP) {
       this.product = this.productService.getProductBySN(this.formP.value.products);
       this.product.gymName = this.gym.name;
       this.productService.updateProduct(this.productService.getProductIndexBySN(this.formP.value.products),this.product);
-      this.dataStorageService.updateProduct(this.formP.value);  
+      this.dataStorageService.updateProduct(this.product);  
 
     }
     if (this.gymService.aT) {
       this.treatment = this.treatmentService.getTreatmentByID(parseInt(this.formT.value.treatments));
       this.treatment.gymName = this.gym.name;
       this.treatmentService.updateTreatment(this.treatmentService.getTreatmentIndexByID(parseInt(this.formT.value.treatments)),this.treatment); 
-      this.dataStorageService.updateTreatment(this.formT.value);  
+      this.dataStorageService.updateTreatment(this.treatment);  
 
     }
   }

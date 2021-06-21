@@ -5,6 +5,8 @@ import { Job } from "../models/job.model";
 @Injectable()
 export class JobService {
 
+    public list!: boolean;
+
     private jobs: Job[] = [];
     jobsChanged = new Subject<Job[]>();
   

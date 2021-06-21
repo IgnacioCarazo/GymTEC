@@ -14,7 +14,7 @@ export class JobListComponent implements OnInit {
   jobs!: Job[];
   subscription!: Subscription;
 
-  constructor(private jobService : JobService,
+  constructor(public jobService : JobService,
     private router: Router,
     private route: ActivatedRoute) { }
 

@@ -99,6 +99,7 @@ export class CClaseEditComponent implements OnInit {
         instructorID: new FormControl(instructorID, Validators.required),
         className: new FormControl(className, Validators.required),
         serviceID: new FormControl(serviceID, Validators.required),
+        registered: new FormControl(0)
       });
     }
 }

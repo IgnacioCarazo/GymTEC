@@ -9,6 +9,7 @@ export class GymClass {
     public instructorID!: number;
     public className!: string;
     public serviceID!: string;
+    public registered!: number;
 
 
 }

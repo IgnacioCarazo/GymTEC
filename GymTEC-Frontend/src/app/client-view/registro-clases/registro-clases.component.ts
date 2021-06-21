@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { DataStorageService } from 'src/app/services/data-storage.service';
+import { GymClassService } from 'src/app/services/gymclass.service';
 
 @Component({
   selector: 'app-registro-clases',
@@ -9,14 +11,15 @@ import { FormGroup, FormControl } from '@angular/forms';
 export class RegistroClasesComponent implements OnInit {
 
   form!: FormGroup;
-  
+  classes!: any[];
 
 
-  constructor() { }
+  constructor(private classService : GymClassService,
+    private dataStorageService: DataStorageService) { }
 
   ngOnInit(): void {
     this.initForm();
-
+    this.classes = this.classService.classes_string;
   }
 
 

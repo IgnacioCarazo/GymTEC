@@ -16,6 +16,8 @@ export class AsociacionProductsComponent implements OnInit {
     this.gymService.aP = true;
     this.gymService.cC = false;
     this.gymService.xX = false;
+    this.gymService.list = false;
+
   }
 
 }
