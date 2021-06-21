@@ -65,7 +65,7 @@ export class DataStorageService {
   * @returns {Observable<Client>} A client observable.
   */
    sendLoginInfoClient(dni:number): Observable<Client> {
-    return this.http.get<Client>('https://localhost:5001/api/Client/login/'+ dni);    
+    return this.http.get<Client>('https://localhost:7071/api/Client/login/'+ dni);    
   }
 
 
@@ -78,7 +78,7 @@ export class DataStorageService {
   */
    sendLoginInfoEmployee(email: string, password: string) {
       console.log(email, password);
-      return this.http.get<Employee>('https://localhost:7071/api/Employee/login/'+ email + '/' + password);  
+      return this.http.get<Employee>('https://localhost:5001/api/Employee/login/'+ email + '/' + password);  
   }
 
   /**

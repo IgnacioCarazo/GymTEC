@@ -40,8 +40,6 @@ export class AdminLoginComponent implements OnInit {
                   this.router.navigate(['/admin/gestion-sucursales']);
                 }     
             });
-            this.adminService.login = true; 
-            this.router.navigate(['/admin/gestion-sucursales']);
     loginForm.reset();
   }
 

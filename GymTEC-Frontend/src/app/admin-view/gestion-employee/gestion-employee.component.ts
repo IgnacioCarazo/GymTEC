@@ -19,13 +19,14 @@ export class GestionEmployeeComponent implements OnInit {
   ngOnInit(): void {
     this.employeeService.list = false;
     this.spreadService.list = true;
+    this.gymService.list = true;
+    this.jobService.list = true;
     this.gymService.aI = false;
     this.gymService.aT = false;
     this.gymService.aP = false;
     this.gymService.cC = false;
     this.gymService.xX = false;
-    this.gymService.list = true;
-    this.jobService.list = true;
+  
 
 
   }
