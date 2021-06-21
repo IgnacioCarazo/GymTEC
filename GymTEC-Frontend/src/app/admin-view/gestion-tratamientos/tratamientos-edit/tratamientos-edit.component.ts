@@ -44,6 +44,7 @@ export class TratamientosEditComponent implements OnInit {
       this.treatmentService.addTreatment(this.treatmentForm.value)
       this.dataStorageService.storeTreatments(this.treatmentForm.value);
     }
+    this.dataStorageService.fetchTreatments(); 
     this.onCancel();
   }
 
