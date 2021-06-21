@@ -30,7 +30,6 @@ export class GymEditComponent implements OnInit {
       this.id = +params['id'];
       this.editMode = params['id'] != null;
       this.initForm();
-      this.dataStorageService.fetchGyms(); 
 
     });
   }
