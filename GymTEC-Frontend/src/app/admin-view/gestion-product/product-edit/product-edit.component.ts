@@ -26,6 +26,7 @@ export class ProductEditComponent implements OnInit {
       this.id = +params['id'];
       this.editMode = params['id'] != null;
       this.initForm();
+
     });
   }
 
@@ -43,6 +44,7 @@ export class ProductEditComponent implements OnInit {
       this.productService.addProduct(this.form.value);
       this.dataStorageService.storeProduct(this.form.value);
     }
+    this.dataStorageService.fetchProducts(); 
     this.onCancel();
   }
 

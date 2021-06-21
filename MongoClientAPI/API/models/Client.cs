@@ -40,8 +40,8 @@ namespace MongoClientAPI.API.models
         [BsonElement("imc")]
         public int Imc { get; set; }
 
-        [BsonElement("birthday")]
-        public string Birthday { get; set; }
+        [BsonElement("birthDate")]
+        public string BirthDate { get; set; }
 
         [BsonElement("address")]
         public string Address { get; set; }

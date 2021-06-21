@@ -44,6 +44,8 @@ export class JobEditComponent implements OnInit {
       this.dataStorageService.storeJob(this.form.value);
     }
     this.onCancel();
+    this.dataStorageService.fetchGyms(); 
+
   }
 
   /**

@@ -26,6 +26,7 @@ export class MachineEditComponent implements OnInit {
       this.id = +params['id'];
       this.editMode = params['id'] != null;
       this.initForm();
+
     });
   }
 
@@ -43,6 +44,7 @@ export class MachineEditComponent implements OnInit {
       this.machineService.addMachine(this.form.value);
       this.dataStorageService.storeMachine(this.form.value);
     }
+    this.dataStorageService.fetchMachines(); 
     this.onCancel();
   }
 
