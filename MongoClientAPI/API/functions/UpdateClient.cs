@@ -48,7 +48,7 @@ namespace MongoClientAPI.API.functions{
                     Age = updateClientRequest.Age,
                     Weight = updateClientRequest.Weight,
                     Imc = updateClientRequest.Imc,
-                    Birthday = updateClientRequest.Birthday,
+                    BirthDate = updateClientRequest.BirthDate,
                     Address = updateClientRequest.Address
                 };
 

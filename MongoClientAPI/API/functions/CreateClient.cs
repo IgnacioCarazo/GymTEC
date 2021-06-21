@@ -47,7 +47,7 @@ namespace MongoClientAPI.API.functions{
                      Age = clientRequest.Age,
                      Weight = clientRequest.Weight,
                      Imc = clientRequest.Imc,
-                     Birthday = clientRequest.Birthday,
+                     BirthDate = clientRequest.BirthDate,
                      Address = clientRequest.Address,
                  };
                 await _clientService.CreateClient(client);
