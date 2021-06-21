@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { DataStorageService } from 'src/app/services/data-storage.service';
 import { EmployeeService } from 'src/app/services/employee.service';
+import { Md5 } from 'ts-md5';
 
 @Component({
   selector: 'app-employee-edit',
@@ -28,6 +29,8 @@ export class EmployeeEditComponent implements OnInit {
       this.editMode = params['id'] != null;
       this.initForm();
     });
+    this.dataStorageService.fetchEmployees(); 
+
   }
 
   /**
@@ -40,9 +43,13 @@ export class EmployeeEditComponent implements OnInit {
     if (this.editMode) {
       this.employeeService.updateEmployee(this.id, this.form.value);
       this.dataStorageService.updateEmployee(this.form.value);
+      this.dataStorageService.fetchEmployees(); 
+
     } else {
       this.employeeService.addEmployee(this.form.value);
       this.dataStorageService.storeEmployee(this.form.value)
+      this.dataStorageService.fetchEmployees(); 
+
     }
     this.onCancel();
   }
@@ -110,7 +117,7 @@ export class EmployeeEditComponent implements OnInit {
         canton: new FormControl(canton, Validators.required),
         district: new FormControl(district, Validators.required),
         email: new FormControl(email, Validators.required),
-        password: new FormControl(password, Validators.required),
+        password: new FormControl(Md5.hashStr(password), Validators.required),
         numberOfClasses: new FormControl(numberOfClasses, Validators.required),
         laboredHours: new FormControl(laboredHours, Validators.required),
         salary: new FormControl(salary, Validators.required),

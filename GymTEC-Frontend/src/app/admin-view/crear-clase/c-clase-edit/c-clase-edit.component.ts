@@ -26,6 +26,8 @@ export class CClaseEditComponent implements OnInit {
       this.id = +params['id'];
       this.editMode = params['id'] != null;
       this.initForm();
+      this.dataStorageService.fetchGymClasses(); 
+
     });
   }
 
@@ -48,7 +50,7 @@ export class CClaseEditComponent implements OnInit {
       this.dataStorageService.storeGymClass(this.form.value);
     }
     console.log(this.form.value);
-
+    this.dataStorageService.fetchGymClasses(); 
     this.onCancel();
   }
 

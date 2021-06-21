@@ -30,6 +30,8 @@ export class GymEditComponent implements OnInit {
       this.id = +params['id'];
       this.editMode = params['id'] != null;
       this.initForm();
+      this.dataStorageService.fetchGyms(); 
+
     });
   }
 
@@ -57,11 +59,15 @@ export class GymEditComponent implements OnInit {
       this.gymService.updateGym(this.id, this.gymForm.value)
       this.dataStorageService.updateGym(this.gymForm.value);
 
+
     } else {
       this.gymService.addGym(this.gymForm.value)
       this.dataStorageService.storeGym(this.gymForm.value);
+      
 
     }
+    this.dataStorageService.fetchGyms(); 
+
     this.onCancel();
   }
 

@@ -27,6 +27,7 @@ export class ServiceEditComponent implements OnInit {
       this.id = +params['id'];
       this.editMode = params['id'] != null;
       this.initForm();
+
     });
   }
 
@@ -44,6 +45,7 @@ export class ServiceEditComponent implements OnInit {
       this.serviceService.addService(this.form.value);
       this.dataStorageService.storeService(this.form.value);
     }
+    this.dataStorageService.fetchServices(); 
     this.onCancel();
   }
 

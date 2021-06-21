@@ -111,6 +111,12 @@ export class GymDetailComponent implements OnInit {
           this.machines = this.machineService.getMachines();
           this.gymTreatments = [];
           this.getGymInfo();
+          this.dataStorageService.fetchMachines(); 
+          this.dataStorageService.fetchProducts(); 
+          this.dataStorageService.fetchTreatments(); 
+          this.dataStorageService.fetchGyms(); 
+          
+
           
         }
       );
@@ -120,17 +126,28 @@ export class GymDetailComponent implements OnInit {
     if (this.gymService.aI) {
       this.machine = this.machineService.getMachineBySN(parseInt(this.formI.value.machines));
       this.machine.gymName = this.gym.name;
-      this.machineService.updateMachine(this.machineService.getMachineIndexBySN(parseInt(this.formI.value.machines)),this.machine);  
+      this.machineService.updateMachine(this.machineService.getMachineIndexBySN(parseInt(this.formI.value.machines)),this.machine);
+      console.log(this.machine);
+      this.dataStorageService.updateMachine(this.machine); 
+      this.dataStorageService.fetchMachines(); 
     }
     if (this.gymService.aP) {
       this.product = this.productService.getProductBySN(this.formP.value.products);
       this.product.gymName = this.gym.name;
-      this.productService.updateProduct(this.productService.getProductIndexBySN(this.formP.value.products),this.product);  
+      this.productService.updateProduct(this.productService.getProductIndexBySN(this.formP.value.products),this.product); 
+      console.log(this.product);
+      this.dataStorageService.updateProduct(this.product);  
+      this.dataStorageService.fetchProducts(); 
+
     }
     if (this.gymService.aT) {
       this.treatment = this.treatmentService.getTreatmentByID(parseInt(this.formT.value.treatments));
       this.treatment.gymName = this.gym.name;
-      this.treatmentService.updateTreatment(this.treatmentService.getTreatmentIndexByID(parseInt(this.formT.value.treatments)),this.treatment);  
+      this.treatmentService.updateTreatment(this.treatmentService.getTreatmentIndexByID(parseInt(this.formT.value.treatments)),this.treatment); 
+      console.log(this.treatment);
+      this.dataStorageService.updateTreatment(this.treatment);  
+      this.dataStorageService.fetchTreatments(); 
+
     }
   }
 
