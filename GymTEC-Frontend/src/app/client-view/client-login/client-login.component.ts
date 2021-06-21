@@ -41,20 +41,20 @@ export class ClientLoginComponent implements OnInit {
     onSubmit(loginForm: NgForm) {  
     loginForm.value.password = Md5.hashStr(loginForm.value.password);
 
-   // this.dataStorageService.sendLoginInfoClient(loginForm.value.email,loginForm.value.password).
-    //        subscribe( client => {
-      //          this.client = client;
-        //        if (this.client.dni !== 0) {
-          //        this.clientService.setClient(this.client);
-            //      this.clientService.login = true; 
-              //    this.router.navigate(['/client/clases']);
-//
-//
-  //              }  
-    //        });
+    this.dataStorageService.sendLoginInfoClient(loginForm.value.dni).
+            subscribe( client => {
+                this.client = client;
+                if (this.client.dni !== 0) {
+                  this.clientService.setClient(this.client);
+                  this.clientService.login = true; 
+                  this.router.navigate(['/client/clases']);
+
+
+                }  
+            });
       this.router.navigate(['/client/clases']);
       this.clientService.login = true;
-      console.log(loginForm.value);
+      console.log(loginForm.value.dni);
       loginForm.reset();
     }
 

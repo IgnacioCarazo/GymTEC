@@ -1,6 +1,17 @@
 <h2>Login Cliente</h2>
 <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)"> 
     <div class="form-group">
+        <label for="dni">Cedula</label>
+        <input 
+        style="width: 500px"
+        id="dni"
+        class="form-control"
+        ngModel
+        name="dni"
+        required
+        >
+    </div>
+    <div class="form-group">
         <label for="email">E-Mail</label>
         <input 
         style="width: 500px"
@@ -9,7 +20,7 @@
         class="form-control"
         ngModel
         name="email"
-        required
+        
         email>
     </div>
     <div class="form-group">
@@ -21,7 +32,7 @@
         class="form-control"
         ngModel
         name="password"
-        required
+        
         minlength="6">
     </div>
     <div *ngIf="!isAdmin" class="form-group">
