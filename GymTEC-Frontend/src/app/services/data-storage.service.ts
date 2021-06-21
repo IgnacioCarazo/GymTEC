@@ -64,8 +64,8 @@ export class DataStorageService {
   * @description  It sends an http get request to the backend wiht the info of the client's email and password. 
   * @returns {Observable<Client>} A client observable.
   */
-   sendLoginInfoClient(email: string, password: string): Observable<Client> {
-    return this.http.get<Client>('https://localhost:5001/api/Client/login/'+ email + '/' + password);    
+   sendLoginInfoClient(dni:number): Observable<Client> {
+    return this.http.get<Client>('https://localhost:5001/api/Client/login/'+ dni);    
   }
 
 
@@ -78,7 +78,7 @@ export class DataStorageService {
   */
    sendLoginInfoEmployee(email: string, password: string) {
       console.log(email, password);
-      return this.http.get<Employee>('https://localhost:5001/api/Employee/login/'+ email + '/' + password);  
+      return this.http.get<Employee>('https://localhost:7071/api/Employee/login/'+ email + '/' + password);  
   }
 
   /**
@@ -88,13 +88,14 @@ export class DataStorageService {
    sendRegisterInfo(client: Client) {
     this.http
     .post(
-      'https://localhost:5001/api/Client',
+      'https://localhost:7071/api/Client',
       client, this.httpOptions
     )
     .subscribe((response: any) => {
       console.log(response);
     });  
 } 
+
 
 /**
    * ------------------------------------------------
