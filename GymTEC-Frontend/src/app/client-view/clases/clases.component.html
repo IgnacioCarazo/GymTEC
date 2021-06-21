@@ -11,7 +11,7 @@
             formControlName="gymClass"
             class="form-control"
             style="width: 400px;"
-            placeholder="Inserte un tipo de clase"
+            placeholder="Inserte el nombre de la clase"
             >
             <label for="gym">Sucursal</label>
             <input
@@ -20,7 +20,7 @@
             formControlName="gym"
             class="form-control"
             style="width: 400px;"
-            placeholder="Inserte la sucursal"
+            placeholder="Inserte el nombre de la sucursal o gimnasio"
             >
            
         </div>
@@ -35,4 +35,27 @@
     </div>
   </div>
   <hr>
+  <table class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
+          <th scope="col">Nombre de la Clase</th>
+          <th scope="col">Fecha</th>
+          <th scope="col">Hora de Inicio</th>
+          <th scope="col">Hora de Finalizacion</th>
+          <th scope="col">Grupal</th>
+          <th scope="col">Campos Disponibles</th>
+
+
+        </tr>
+      </thead>
+    <tbody>
+        <tr *ngFor="let row of tabla_clases">
+            <td *ngFor="let cell of row">
+                {{ cell }}
+            </td>
+        </tr>
+    </tbody>
+</table>
+<hr>
+
   

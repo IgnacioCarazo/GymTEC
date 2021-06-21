@@ -76,6 +76,7 @@ export class CClaseEditComponent implements OnInit {
       let instructorID = 0;
       let className = '';
       let serviceID = '';
+      let gymName = '';
       
       if (this.editMode) {
         const gymClass = this.classService.getClass(this.id);
@@ -87,6 +88,7 @@ export class CClaseEditComponent implements OnInit {
         instructorID = gymClass.instructorID;
         className = gymClass.className;
         serviceID = gymClass.serviceID;
+        gymName = gymClass.gymName;
         }
     
   
@@ -99,7 +101,8 @@ export class CClaseEditComponent implements OnInit {
         instructorID: new FormControl(instructorID, Validators.required),
         className: new FormControl(className, Validators.required),
         serviceID: new FormControl(serviceID, Validators.required),
-        registered: new FormControl(0)
+        registered: new FormControl(0),
+        gymName: new FormControl(gymName, Validators.required),
       });
     }
 }

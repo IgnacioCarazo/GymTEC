@@ -11,7 +11,7 @@ import { GymClassService } from 'src/app/services/gymclass.service';
 })
 export class ClasesComponent implements OnInit {
   form!: FormGroup;
-  tabla_clases!: any[];
+  tabla_clases: any[] = [];
   classes!: GymClass[];
   check = '✓';
 

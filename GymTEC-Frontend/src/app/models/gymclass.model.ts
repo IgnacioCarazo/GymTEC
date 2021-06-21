@@ -10,6 +10,7 @@ export class GymClass {
     public className!: string;
     public serviceID!: string;
     public registered!: number;
+    public gymName!: string;
 
 
 }
