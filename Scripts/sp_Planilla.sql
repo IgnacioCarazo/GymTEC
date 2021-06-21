@@ -11,7 +11,7 @@ CREATE PROCEDURE sp_GenerateWorksheet
 AS 
 BEGIN
 
-DECLARE @table2 TABLE (gymName VARCHAR(20), fullname VARCHAR(100),id INT, spreadType VARCHAR(10),laboredHours INT, numberOfClasses INT, salary INT)
+DECLARE @table2 TABLE (gymName VARCHAR(20), fullname VARCHAR(100),id INT, spreadType VARCHAR(40),laboredHours INT, numberOfClasses INT, salary INT)
 
 INSERT INTO @table2(gymName, fullname,id,spreadType,laboredHours,numberOfClasses,salary) SELECT table1.gymName, table1.fullname, table1.id, table1.spreadType, table1.laboredHours, table1.numberOfClasses, table1.salary
 FROM (SELECT E.gymName AS gymName, (E.name + ' ' + E.primaryLastName + ' ' + E.secondaryLastName) AS fullname, E.id,S.name AS spreadType, E.laboredHours, E.numberOfClasses, E.salary
@@ -22,7 +22,7 @@ ON E.spreadsheetTypeID = S.id ) AS table1
 
 DECLARE @count INT = (SELECT COUNT(*) FROM @table2)
 
-DECLARE @table3 TABLE (sucursal VARCHAR(20),fullname VARCHAR(100),id INT, spreadType VARCHAR(10),laboredHours INT, numberOfClasses INT, totalWage INT)
+DECLARE @table3 TABLE (sucursal VARCHAR(20),fullname VARCHAR(100),id INT, spreadType VARCHAR(40),laboredHours INT, numberOfClasses INT, totalWage INT)
 
 WHILE @count > 0
 BEGIN
@@ -30,7 +30,7 @@ BEGIN
 DECLARE @sucursal VARCHAR(20)
 SELECT @sucursal = (SELECT TOP(1) gymName FROM @table2)
 
-DECLARE @spreadTypes VARCHAR(10)
+DECLARE @spreadTypes VARCHAR(40)
 SELECT @spreadTypes = (SELECT TOP(1) spreadType FROM @table2)
 
 DECLARE @fullName VARCHAR(100)
@@ -55,9 +55,9 @@ DECLARE @numberOfClassesWage int
 SELECT @numberOfClassesWage = (SELECT TOP(1) numberofClasses FROM @table2) * @monthlyWage
 
 DECLARE @totalWage int
-IF(@spreadTypes ='Mensual')
+IF(@spreadTypes ='Pago Mensual')
 SELECT @totalWage = @monthlyWage
-IF(@spreadTypes ='Hora')
+ELSE IF(@spreadTypes ='Pago Hora')
 SELECT @totalWage =  @laboredHoursWage
 ELSE
 SELECT @totalWage = @numberOfClassesWage
@@ -76,3 +76,5 @@ END
 GO
 
 
+
+EXECUTE sp_GenerateWorksheet

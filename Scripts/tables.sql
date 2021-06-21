@@ -47,11 +47,13 @@ ON UPDATE CASCADE;
 
 -------------TABLE SERVICE----------------
 CREATE TABLE Service(
-	 name VARCHAR(11) NOT NULL,
+	 name VARCHAR(40) NOT NULL,
 	 id INT NOT NULL,
-	 description VARCHAR(11) NOT NULL,
+	 description VARCHAR(40) NOT NULL,
 	 gymName VARCHAR(10)
 );
+
+
 
 ALTER TABLE Service
 ADD CONSTRAINT pk_service_id PRIMARY KEY (id);
@@ -84,6 +86,9 @@ ADD CONSTRAINT fk_gymClass_serviceID FOREIGN KEY (serviceID)
 REFERENCES Service (id)
 ON DELETE CASCADE
 ON UPDATE CASCADE;
+
+ALTER TABLE GymClass
+DROP CONSTRAINT fk_gymClass_serviceID 
 
 
 --------------TABLE JOB------------------------
@@ -173,41 +178,35 @@ ADD CONSTRAINT pk_spreadsheetype_id PRIMARY KEY (id);
 --------------TABLE TREATMENT--------------------
 
 CREATE TABLE Treatment(
-	  id INT NOT NULL,
-	  name VARCHAR(10) NOT NULL,
-	  gymName VARCHAR(10)
+	  id INT IDENTITY(1,1) NOT NULL,
+	  name VARCHAR(40) NOT NULL,
+	  gymName VARCHAR(40)
 );
 
 ALTER TABLE Treatment
 ADD CONSTRAINT pk_treatment_id PRIMARY KEY (id);
-
-ALTER TABLE Treatment
-ADD CONSTRAINT fk_gym_treatment_name FOREIGN KEY (gymName)
-REFERENCES Gym (name)
-ON DELETE CASCADE
-ON UPDATE CASCADE;
-
-
 
 ------------------TABLE CLIENT-----------------------------
 
 
 SELECT * FROM Employee;
 
-SELECT * FROM Gym;
+--SELECT * FROM Gym;
 
 SELECT * FROM Treatment;
 
-SELECT * FROM Job;
+--SELECT * FROM Job;
 
-SELECT * FROM SpreadsheetType;
+--SELECT * FROM SpreadsheetType;
 
-SELECT * FROM Service;
+--SELECT * FROM Service;
 
-SELECT * FROM MachineType;
+--SELECT * FROM MachineType;
 
-SELECT * FROM Machine;
+--SELECT * FROM Machine;
 
-SELECT * FROM Product;
+--SELECT * FROM Product;
 
-SELECT * FROM GymClass;
+--SELECT * FROM GymClass;
+
+
