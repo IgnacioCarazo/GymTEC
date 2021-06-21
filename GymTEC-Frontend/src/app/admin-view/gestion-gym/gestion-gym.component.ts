@@ -13,12 +13,14 @@ export class GestionGymComponent implements OnInit {
     private employeeService: EmployeeService) { }
 
   ngOnInit(): void {
+
+    this.employeeService.list = true;
+    this.gymService.list = false;
     this.gymService.aI = false;
     this.gymService.aT = false;
     this.gymService.aP = false;
     this.gymService.cC = false;
     this.gymService.xX = true;
-    this.employeeService.list = true;
 
 
   }

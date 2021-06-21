@@ -17,7 +17,6 @@ export class GymItemComponent implements OnInit {
     public employeeService : EmployeeService) { }
 
   ngOnInit(): void {
-    this.employeeService.list = true;
   }
 
 }
