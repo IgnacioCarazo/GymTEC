@@ -10,7 +10,7 @@ export class SpreadsheetService {
 
     public list!: boolean;
     private spreadsheetTypes: SpreadsheetType[] = [];
-    public spreadsheetGenerated: GenerateWorksheet[] = [new GenerateWorksheet];
+    public spreadsheetGenerated: GenerateWorksheet[] = [];
     spreadsheetTypesChanged = new Subject<SpreadsheetType[]>();
   
     constructor() {

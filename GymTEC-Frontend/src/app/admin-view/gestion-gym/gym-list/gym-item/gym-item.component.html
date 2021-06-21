@@ -1,4 +1,4 @@
-<a *ngIf="this.gymService.xX"
+<a *ngIf="!this.gymService.list"
 style="cursor: pointer;"
 [routerLink]="[index]"
 routerLinkActive="active"
@@ -8,7 +8,7 @@ class="list-group-item clearfix">
 </div>
 </a>
 
-<a *ngIf="!this.gymService.xX"
+<a *ngIf="this.gymService.list"
 style="cursor: pointer;"
 class="list-group-item clearfix">
 <div class="pull-left">

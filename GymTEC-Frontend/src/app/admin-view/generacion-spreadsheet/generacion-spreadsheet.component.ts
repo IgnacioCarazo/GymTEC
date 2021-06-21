@@ -27,9 +27,9 @@ export class GeneracionSpreadsheetComponent implements OnInit {
 
 
   generarPlanilla() {
-    let listaaux = [];
     this.planilla = this.spreadsheetService.spreadsheetGenerated;
     for (let item of this.planilla) {
+      let listaaux = [];
       listaaux.push(item.sucursal);
       listaaux.push(item.fullname);
       listaaux.push(item.id);
@@ -38,9 +38,6 @@ export class GeneracionSpreadsheetComponent implements OnInit {
       listaaux.push(item.spreadType);
       listaaux.push(item.totalWage);
       this.lista.push(listaaux);
-      
-
-
     }
     this.flag = true;
 
